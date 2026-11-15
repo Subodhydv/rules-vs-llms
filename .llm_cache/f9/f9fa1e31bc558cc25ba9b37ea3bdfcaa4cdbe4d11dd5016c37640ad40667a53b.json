@@ -1,0 +1,43 @@
+{
+ "model": "gemini-2.5-flash",
+ "response": {
+  "candidates": [
+   {
+    "content": {
+     "parts": [
+      {
+       "text": "{\n  \"old\": {\n    \"line_items\": [\n      {\n        \"label\": \"Gross Salary\",\n        \"amount\": 1234561,\n        \"clause\": \"N/A\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"HRA Exemption\",\n        \"amount\": 0,\n        \"clause\": \"O-HRA\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Standard Deduction\",\n        \"amount\": -50000,\n        \"clause\": \"O-SD\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Loss from Self-Occupied House Property (Interest)\",\n        \"amount\": 0,\n        \"clause\": \"O-HP\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80C\",\n        \"amount\": -33333,\n        \"clause\": \"O-80C\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80CCD(1B)\",\n        \"amount\": 0,\n        \"clause\": \"O-80CCD1B\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80D (Self/Family)\",\n        \"amount\": 0,\n        \"clause\": \"O-80D-SELF\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80D (Parents)\",\n        \"amount\": 0,\n        \"clause\": \"O-80D-PARENTS\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Chapter VI-A Deductions Cap Adjustment\",\n        \"amount\": 0,\n        \"clause\": \"O-VIA-CAP\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Total Income before rounding\",\n        \"amount\": 1151228,\n        \"clause\": \"O-TI\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Rounding of Total Income\",\n        \"amount\": 2,\n        \"clause\": \"G-ROUND-INCOME\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Tax on income slabs\",\n        \"amount\": 157869,\n        \"clause\": \"O-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rebate u/s 87A\",\n        \"amount\": 0,\n        \"clause\": \"O-87A\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"O-SURCHARGE\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Health and Education Cess\",\n        \"amount\": 6315,\n        \"clause\": \"O-CESS\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Tax before rounding\",\n        \"amount\": 164184,\n        \"clause\": \"G-ORDER\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rounding of Tax Payable\",\n        \"amount\": -4,\n        \"clause\": \"G-ROUND-TAX\",\n        \"stage\": \"tax\"\n      }\n    ],\n    \"total_income\": 1151230,\n    \"tax_payable\": 164180\n  },\n  \"new\": {\n    \"line_items\": [\n      {\n        \"label\": \"Gross Salary\",\n        \"amount\": 1234561,\n        \"clause\": \"N/A\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"HRA Exemption (disallowed)\",\n        \"amount\": 0,\n        \"clause\": \"N-DISALLOW\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Loss from Self-Occupied House Property (Interest) (disallowed)\",\n        \"amount\": 0,\n        \"clause\": \"N-DISALLOW\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Standard Deduction\",\n        \"amount\": -75000,\n        \"clause\": \"N-SD\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80C (disallowed)\",\n        \"amount\": 0,\n        \"clause\": \"N-DISALLOW\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80CCD(1B) (disallowed)\",\n        \"amount\": 0,\n        \"clause\": \"N-DISALLOW\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80D (Self/Family) (disallowed)\",\n        \"amount\": 0,\n        \"clause\": \"N-DISALLOW\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80D (Parents) (disallowed)\",\n        \"amount\": 0,\n        \"clause\": \"N-DISALLOW\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Total Income before rounding\",\n        \"amount\": 1159561,\n        \"clause\": \"N-TI\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Rounding of Total Income\",\n        \"amount\": -1,\n        \"clause\": \"G-ROUND-INCOME\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Tax on income slabs\",\n        \"amount\": 73934,\n        \"clause\": \"N-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rebate u/s 87A\",\n        \"amount\": 0,\n        \"clause\": \"N-87A\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"N-SURCHARGE\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Health and Education Cess\",\n        \"amount\": 2957,\n        \"clause\": \"N-CESS\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Tax before rounding\",\n        \"amount\": 76891,\n        \"clause\": \"G-ORDER\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rounding of Tax Payable\",\n        \"amount\": -1,\n        \"clause\": \"G-ROUND-TAX\",\n        \"stage\": \"tax\"\n      }\n    ],\n    \"total_income\": 1159560,\n    \"tax_payable\": 76890\n  },\n  \"recommended\": \"new\",\n  \"explanation\": \"The new tax regime results in a lower tax liability of \u20b976,890 compared to the old tax regime's \u20b91,64,180. Therefore, the new regime is recommended.\"\n}"
+      }
+     ],
+     "role": "model"
+    },
+    "finishReason": "STOP",
+    "index": 0
+   }
+  ],
+  "usageMetadata": {
+   "promptTokenCount": 2999,
+   "candidatesTokenCount": 1784,
+   "totalTokenCount": 9380,
+   "cachedContentTokenCount": 1985,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2999
+    }
+   ],
+   "cacheTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1985
+    }
+   ],
+   "thoughtsTokenCount": 4597,
+   "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-2.5-flash",
+  "responseId": "rRT5aqyaOuiz694P4PmYIA"
+ },
+ "latency_ms": 24703.90379196033,
+ "timestamp": "2026-11-15T07:41:17"
+}

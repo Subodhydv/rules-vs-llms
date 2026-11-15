@@ -1,0 +1,36 @@
+{
+ "model": "gemini-2.5-flash",
+ "response": {
+  "candidates": [
+   {
+    "content": {
+     "parts": [
+      {
+       "text": "{\n  \"old\": {\n    \"line_items\": [\n      {\n        \"label\": \"Gross Salary\",\n        \"amount\": 1300000,\n        \"clause\": \"N/A\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"HRA Exemption\",\n        \"amount\": 0,\n        \"clause\": \"O-HRA\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Standard Deduction\",\n        \"amount\": -50000,\n        \"clause\": \"O-SD\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Loss from Self-Occupied House Property\",\n        \"amount\": 0,\n        \"clause\": \"O-HP\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80C\",\n        \"amount\": -150000,\n        \"clause\": \"O-80C\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80CCD(1B)\",\n        \"amount\": -49990,\n        \"clause\": \"O-80CCD1B\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80D (Self/Family)\",\n        \"amount\": 0,\n        \"clause\": \"O-80D-SELF\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80D (Parents)\",\n        \"amount\": 0,\n        \"clause\": \"O-80D-PARENTS\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Chapter VI-A Deductions Cap\",\n        \"amount\": 0,\n        \"clause\": \"O-VIA-CAP\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Total Income before rounding\",\n        \"amount\": 1050010,\n        \"clause\": \"O-TI\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Rounding of Total Income\",\n        \"amount\": 0,\n        \"clause\": \"G-ROUND-INCOME\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Tax on Income Slab (0-2,50,000)\",\n        \"amount\": 0,\n        \"clause\": \"O-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Tax on Income Slab (2,50,001-5,00,000)\",\n        \"amount\": 12500,\n        \"clause\": \"O-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Tax on Income Slab (5,00,001-10,00,000)\",\n        \"amount\": 100000,\n        \"clause\": \"O-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Tax on Income Slab (10,00,001+)\",\n        \"amount\": 15003,\n        \"clause\": \"O-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rebate u/s 87A\",\n        \"amount\": 0,\n        \"clause\": \"O-87A\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"O-SURCHARGE\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Marginal Relief on Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"O-MR\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Health and Education Cess (4%)\",\n        \"amount\": 5100,\n        \"clause\": \"O-CESS\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rounding of Final Tax\",\n        \"amount\": -3,\n        \"clause\": \"G-ROUND-TAX\",\n        \"stage\": \"tax\"\n      }\n    ],\n    \"total_income\": 1050010,\n    \"tax_payable\": 132600\n  },\n  \"new\": {\n    \"line_items\": [\n      {\n        \"label\": \"Gross Salary\",\n        \"amount\": 1300000,\n        \"clause\": \"N/A\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Disallowed Exemptions/Deductions\",\n        \"amount\": 0,\n        \"clause\": \"N-DISALLOW\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Standard Deduction\",\n        \"amount\": -75000,\n        \"clause\": \"N-SD\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Total Income before rounding\",\n        \"amount\": 1225000,\n        \"clause\": \"N-TI\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Rounding of Total Income\",\n        \"amount\": 0,\n        \"clause\": \"G-ROUND-INCOME\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Tax on Income Slab (0-3,00,000)\",\n        \"amount\": 0,\n        \"clause\": \"N-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Tax on Income Slab (3,00,001-7,00,000)\",\n        \"amount\": 20000,\n        \"clause\": \"N-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Tax on Income Slab (7,00,001-10,00,000)\",\n        \"amount\": 30000,\n        \"clause\": \"N-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Tax on Income Slab (10,00,001-12,00,000)\",\n        \"amount\": 30000,\n        \"clause\": \"N-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Tax on Income Slab (12,00,001-15,00,000)\",\n        \"amount\": 5000,\n        \"clause\": \"N-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rebate u/s 87A\",\n        \"amount\": 0,\n        \"clause\": \"N-87A\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Marginal Relief u/s 87A\",\n        \"amount\": 0,\n        \"clause\": \"N-87A-MR\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"N-SURCHARGE\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Marginal Relief on Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"N-MR\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Health and Education Cess (4%)\",\n        \"amount\": 3400,\n        \"clause\": \"N-CESS\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rounding of Final Tax\",\n        \"amount\": 0,\n        \"clause\": \"G-ROUND-TAX\",\n        \"stage\": \"tax\"\n      }\n    ],\n    \"total_income\": 1225000,\n    \"tax_payable\": 88400\n  },\n  \"recommended\": \"new\",\n  \"explanation\": \"The new tax regime results in a lower tax liability of \u20b988,400 compared to \u20b9132,600 under the old tax regime. Therefore, the new regime is recommended.\"\n}"
+      }
+     ],
+     "role": "model"
+    },
+    "finishReason": "STOP",
+    "index": 0
+   }
+  ],
+  "usageMetadata": {
+   "promptTokenCount": 3004,
+   "candidatesTokenCount": 2037,
+   "totalTokenCount": 7483,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3004
+    }
+   ],
+   "thoughtsTokenCount": 2442,
+   "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-2.5-flash",
+  "responseId": "bRf5arikNdiJz7sP3qqqcA"
+ },
+ "latency_ms": 18470.6160830101,
+ "timestamp": "2026-11-15T07:52:55"
+}

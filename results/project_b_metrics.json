@@ -1,0 +1,1546 @@
+{
+ "data_source": "nyc_open_data",
+ "llm_status": "offline (cache entries: 22)",
+ "machine": "arm, 8 CPUs, Python 3.14.0",
+ "config": {
+  "batch_rows": 2000,
+  "clean_batches": 10,
+  "corrupt_batches_per_problem": 5
+ },
+ "profile": {
+  "data_source": "nyc_open_data",
+  "sample_rows": 109500,
+  "soql_full_year": {
+   "source": "project_b_soql_profile.json",
+   "fetched_at": "2026-11-15T07:26:04",
+   "counts": {
+    "rows_2023": 3224723,
+    "closed_before_created": 4313,
+    "closed_equals_created": 62611,
+    "closed_date_null": 61874,
+    "latitude_null": 48579,
+    "incident_zip_null": 38520,
+    "incident_zip_not_5_digit_nyc": 89,
+    "borough_unspecified": 5994,
+    "closed_after_fetch_date": 0,
+    "resolution_null": 46062,
+    "descriptor_null": 39318
+   },
+   "status": [
+    {
+     "status": "Closed",
+     "n": "3176225"
+    },
+    {
+     "status": "In Progress",
+     "n": "38314"
+    },
+    {
+     "status": "Pending",
+     "n": "4803"
+    },
+    {
+     "status": "Open",
+     "n": "2068"
+    },
+    {
+     "status": "Assigned",
+     "n": "1448"
+    },
+    {
+     "status": "Unspecified",
+     "n": "1414"
+    },
+    {
+     "status": "Started",
+     "n": "451"
+    }
+   ],
+   "borough": [
+    {
+     "borough": "BROOKLYN",
+     "n": "1000859"
+    },
+    {
+     "borough": "QUEENS",
+     "n": "776644"
+    },
+    {
+     "borough": "MANHATTAN",
+     "n": "685350"
+    },
+    {
+     "borough": "BRONX",
+     "n": "627784"
+    },
+    {
+     "borough": "STATEN ISLAND",
+     "n": "128092"
+    },
+    {
+     "borough": "Unspecified",
+     "n": "5994"
+    }
+   ],
+   "top_agencies": [
+    {
+     "agency": "NYPD",
+     "n": "1392519"
+    },
+    {
+     "agency": "HPD",
+     "n": "686947"
+    },
+    {
+     "agency": "DSNY",
+     "n": "302029"
+    },
+    {
+     "agency": "DOT",
+     "n": "193947"
+    },
+    {
+     "agency": "DEP",
+     "n": "170274"
+    },
+    {
+     "agency": "DPR",
+     "n": "127794"
+    },
+    {
+     "agency": "DOB",
+     "n": "100958"
+    },
+    {
+     "agency": "DOHMH",
+     "n": "85189"
+    },
+    {
+     "agency": "EDC",
+     "n": "59127"
+    },
+    {
+     "agency": "DHS",
+     "n": "47627"
+    },
+    {
+     "agency": "TLC",
+     "n": "35814"
+    },
+    {
+     "agency": "DCWP",
+     "n": "20927"
+    },
+    {
+     "agency": "DOE",
+     "n": "1399"
+    },
+    {
+     "agency": "OTI",
+     "n": "172"
+    }
+   ]
+  },
+  "sample_checks": [
+   {
+    "check": "closed date before created date",
+    "count": 0,
+    "pct": 0.0,
+    "examples": []
+   },
+   {
+    "check": "closed date equal to created date (zero-duration)",
+    "count": 952,
+    "pct": 0.869,
+    "examples": [
+     {
+      "unique_key": "56414817",
+      "created_date": "2023-01-01T23:48:47.000",
+      "closed_date": "2023-01-01T23:48:47.000",
+      "agency": "DOHMH",
+      "complaint_type": "Rodent",
+      "descriptor": "Rat Sighting",
+      "incident_zip": "11208",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.68290777799716",
+      "longitude": "-73.86730932142164",
+      "resolution_description": "The Department of Health and Mental Hygiene inspected the property you reported and did not find any violation"
+     },
+     {
+      "unique_key": "56417034",
+      "created_date": "2023-01-01T23:21:47.000",
+      "closed_date": "2023-01-01T23:21:47.000",
+      "agency": "DOHMH",
+      "complaint_type": "Rodent",
+      "descriptor": "Signs of Rodents",
+      "incident_zip": "11221",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.69798995304184",
+      "longitude": "-73.9289261788516",
+      "resolution_description": "The Department of Health and Mental Hygiene found violations on the property you reported. Follow-up inspectio"
+     },
+     {
+      "unique_key": "56414262",
+      "created_date": "2023-01-01T23:15:30.000",
+      "closed_date": "2023-01-01T23:15:30.000",
+      "agency": "DOHMH",
+      "complaint_type": "Rodent",
+      "descriptor": "Condition Attracting Rodents",
+      "incident_zip": "11221",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.69806675301199",
+      "longitude": "-73.92883954461134",
+      "resolution_description": "The Department of Health and Mental Hygiene found violations on the property you reported. Follow-up inspectio"
+     }
+    ]
+   },
+   {
+    "check": "closed date after 2026-11-15 or before 2023",
+    "count": 0,
+    "pct": 0.0,
+    "examples": []
+   },
+   {
+    "check": "created time exactly 00:00:00 (date-only precision)",
+    "count": 0,
+    "pct": 0.0,
+    "examples": []
+   },
+   {
+    "check": "created_date not ISO-8601",
+    "count": 0,
+    "pct": 0.0,
+    "examples": []
+   },
+   {
+    "check": "status open/in progress but closed_date set",
+    "count": 34,
+    "pct": 0.031,
+    "examples": [
+     {
+      "unique_key": "56488071",
+      "created_date": "2023-01-03T22:58:54.000",
+      "closed_date": "2023-01-04T13:00:00.000",
+      "agency": "DOHMH",
+      "complaint_type": "Indoor Air Quality",
+      "descriptor": "Chemical Vapors/Gases/Odors",
+      "incident_zip": "11207",
+      "borough": "BROOKLYN",
+      "status": "Assigned",
+      "latitude": "40.65651333701598",
+      "longitude": "-73.88182509318824",
+      "resolution_description": "The condition you reported was investigated.  The results are pending.   If you need more information, you may"
+     },
+     {
+      "unique_key": "56603786",
+      "created_date": "2023-01-22T22:57:22.000",
+      "closed_date": "2023-01-22T22:57:22.000",
+      "agency": "DOB",
+      "complaint_type": "General Construction/Plumbing",
+      "descriptor": "Cons - Contrary/Beyond Approved Plans/Permits",
+      "incident_zip": "11231",
+      "borough": "BROOKLYN",
+      "status": "Open",
+      "latitude": "40.67737945570251",
+      "longitude": "-73.9993294274527",
+      "resolution_description": "Your Service Request has been submitted to the Department of Buildings.  Please check back later for status."
+     },
+     {
+      "unique_key": "56622178",
+      "created_date": "2023-01-24T23:17:37.000",
+      "closed_date": "2023-03-23T00:00:00.000",
+      "agency": "DOB",
+      "complaint_type": "Building/Use",
+      "descriptor": "Illegal Conversion Of Residential Building/Space",
+      "incident_zip": "11373",
+      "borough": "QUEENS",
+      "status": "Assigned",
+      "latitude": "40.744372126069095",
+      "longitude": "-73.88061546491072",
+      "resolution_description": "The Department of Buildings has attempted to conduct an inspection of this premises and was denied access. A s"
+     }
+    ]
+   },
+   {
+    "check": "status Closed but closed_date missing",
+    "count": 460,
+    "pct": 0.42,
+    "examples": [
+     {
+      "unique_key": "61764546",
+      "created_date": "2023-06-02T23:42:56.000",
+      "closed_date": null,
+      "agency": "DOT",
+      "complaint_type": "Street Condition",
+      "descriptor": "Pothole",
+      "incident_zip": "11222",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.73484701914797",
+      "longitude": "-73.95072453253421",
+      "resolution_description": null
+     },
+     {
+      "unique_key": "61761902",
+      "created_date": "2023-06-02T23:42:25.000",
+      "closed_date": null,
+      "agency": "DOT",
+      "complaint_type": "Street Condition",
+      "descriptor": "Pothole",
+      "incident_zip": "11249",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.72052382626067",
+      "longitude": "-73.954851351934",
+      "resolution_description": null
+     },
+     {
+      "unique_key": "61759317",
+      "created_date": "2023-06-02T23:41:51.000",
+      "closed_date": null,
+      "agency": "DOT",
+      "complaint_type": "Street Condition",
+      "descriptor": "Pothole",
+      "incident_zip": "11211",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.712895447685824",
+      "longitude": "-73.94117099049777",
+      "resolution_description": null
+     }
+    ]
+   },
+   {
+    "check": "status Closed but resolution_description missing",
+    "count": 248,
+    "pct": 0.226,
+    "examples": [
+     {
+      "unique_key": "56426670",
+      "created_date": "2023-01-03T23:32:51.000",
+      "closed_date": "2023-01-04T14:13:50.000",
+      "agency": "TLC",
+      "complaint_type": "Green Taxi Complaint",
+      "descriptor": "Driver Complaint - Passenger",
+      "incident_zip": "11377",
+      "borough": "QUEENS",
+      "status": "Closed",
+      "latitude": "40.74650386255595",
+      "longitude": "-73.90299449046638",
+      "resolution_description": null
+     },
+     {
+      "unique_key": "56526638",
+      "created_date": "2023-01-14T23:56:50.000",
+      "closed_date": "2024-01-11T14:03:33.000",
+      "agency": "DSNY",
+      "complaint_type": "Graffiti",
+      "descriptor": "Graffiti",
+      "incident_zip": "11221",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.68557575401465",
+      "longitude": "-73.92957040342367",
+      "resolution_description": null
+     },
+     {
+      "unique_key": "56530232",
+      "created_date": "2023-01-14T23:49:49.000",
+      "closed_date": "2024-01-11T14:03:33.000",
+      "agency": "DSNY",
+      "complaint_type": "Graffiti",
+      "descriptor": "Graffiti",
+      "incident_zip": "11221",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.687903177532164",
+      "longitude": "-73.9293371739893",
+      "resolution_description": null
+     }
+    ]
+   },
+   {
+    "check": "resolution text says still open/pending while status is Closed",
+    "count": 7388,
+    "pct": 6.747,
+    "examples": [
+     {
+      "unique_key": "56418424",
+      "created_date": "2023-01-01T23:53:00.000",
+      "closed_date": "2023-01-03T11:45:00.000",
+      "agency": "DEP",
+      "complaint_type": "Lead",
+      "descriptor": "Lead Kit Request (Residential) (L10)",
+      "incident_zip": "10128",
+      "borough": "MANHATTAN",
+      "status": "Closed",
+      "latitude": "40.78027896232064",
+      "longitude": "-73.95293321926803",
+      "resolution_description": "The Department of Environmental Protection (DEP) mailed you the free lead test kit you requested. The kit incl"
+     },
+     {
+      "unique_key": "56416535",
+      "created_date": "2023-01-01T23:51:26.000",
+      "closed_date": "2023-01-03T19:25:04.000",
+      "agency": "HPD",
+      "complaint_type": "HEAT/HOT WATER",
+      "descriptor": "APARTMENT ONLY",
+      "incident_zip": "10032",
+      "borough": "MANHATTAN",
+      "status": "Closed",
+      "latitude": "40.83789948860798",
+      "longitude": "-73.94208319610429",
+      "resolution_description": "The complaint you filed is a duplicate of a condition already reported by another tenant for a building-wide c"
+     },
+     {
+      "unique_key": "56418566",
+      "created_date": "2023-01-01T23:45:07.000",
+      "closed_date": "2023-01-03T23:58:15.000",
+      "agency": "HPD",
+      "complaint_type": "HEAT/HOT WATER",
+      "descriptor": "ENTIRE BUILDING",
+      "incident_zip": "11226",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.65272532290535",
+      "longitude": "-73.96276454061666",
+      "resolution_description": "The complaint you filed is a duplicate of a condition already reported by another tenant for a building-wide c"
+     }
+    ]
+   },
+   {
+    "check": "latitude/longitude missing",
+    "count": 1282,
+    "pct": 1.171,
+    "examples": [
+     {
+      "unique_key": "56414910",
+      "created_date": "2023-01-01T23:53:13.000",
+      "closed_date": "2023-01-02T01:06:20.000",
+      "agency": "NYPD",
+      "complaint_type": "Illegal Fireworks",
+      "descriptor": "N/A",
+      "incident_zip": null,
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": null,
+      "longitude": null,
+      "resolution_description": "The Police Department responded to the complaint and with the information available observed no evidence of th"
+     },
+     {
+      "unique_key": "56418267",
+      "created_date": "2023-01-01T23:32:00.000",
+      "closed_date": "2023-01-03T12:41:00.000",
+      "agency": "DSNY",
+      "complaint_type": "Derelict Vehicles",
+      "descriptor": "Derelict Vehicles",
+      "incident_zip": null,
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": null,
+      "longitude": null,
+      "resolution_description": "The owner claimed the vehicle.\u00c2\u00a0Your request is now closed and no further action will be taken."
+     },
+     {
+      "unique_key": "56413822",
+      "created_date": "2023-01-01T23:14:00.000",
+      "closed_date": "2023-01-01T23:45:00.000",
+      "agency": "DOT",
+      "complaint_type": "Traffic Signal Condition",
+      "descriptor": "Controller",
+      "incident_zip": null,
+      "borough": "QUEENS",
+      "status": "Closed",
+      "latitude": null,
+      "longitude": null,
+      "resolution_description": "Service Request status for this request is available on the Department of Transportation\u00e2\u0080\u0099s website. Please c"
+     }
+    ]
+   },
+   {
+    "check": "latitude/longitude outside NYC bounding box",
+    "count": 0,
+    "pct": 0.0,
+    "examples": []
+   },
+   {
+    "check": "incident_zip missing",
+    "count": 899,
+    "pct": 0.821,
+    "examples": [
+     {
+      "unique_key": "56414910",
+      "created_date": "2023-01-01T23:53:13.000",
+      "closed_date": "2023-01-02T01:06:20.000",
+      "agency": "NYPD",
+      "complaint_type": "Illegal Fireworks",
+      "descriptor": "N/A",
+      "incident_zip": null,
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": null,
+      "longitude": null,
+      "resolution_description": "The Police Department responded to the complaint and with the information available observed no evidence of th"
+     },
+     {
+      "unique_key": "56418544",
+      "created_date": "2023-01-01T23:44:05.000",
+      "closed_date": "2023-01-02T00:22:08.000",
+      "agency": "NYPD",
+      "complaint_type": "Panhandling",
+      "descriptor": "N/A",
+      "incident_zip": null,
+      "borough": "MANHATTAN",
+      "status": "Closed",
+      "latitude": "40.732337876220505",
+      "longitude": "-74.00049793190519",
+      "resolution_description": "The Police Department responded to the complaint and took action to fix the condition."
+     },
+     {
+      "unique_key": "56418267",
+      "created_date": "2023-01-01T23:32:00.000",
+      "closed_date": "2023-01-03T12:41:00.000",
+      "agency": "DSNY",
+      "complaint_type": "Derelict Vehicles",
+      "descriptor": "Derelict Vehicles",
+      "incident_zip": null,
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": null,
+      "longitude": null,
+      "resolution_description": "The owner claimed the vehicle.\u00c2\u00a0Your request is now closed and no further action will be taken."
+     }
+    ]
+   },
+   {
+    "check": "incident_zip not a NYC 5-digit ZIP (1xxxx)",
+    "count": 1,
+    "pct": 0.001,
+    "examples": [
+     {
+      "unique_key": "56506667",
+      "created_date": "2023-01-12T23:44:00.000",
+      "closed_date": "2023-01-13T10:03:40.000",
+      "agency": "DCWP",
+      "complaint_type": "Consumer Complaint",
+      "descriptor": "Debt Collection Agency",
+      "incident_zip": "44101",
+      "borough": "Unspecified",
+      "status": "Closed",
+      "latitude": null,
+      "longitude": null,
+      "resolution_description": "The Department of Consumer Affairs has already mailed you a complaint form. In order for DCA to be able to hel"
+     }
+    ]
+   },
+   {
+    "check": "borough 'Unspecified' or missing",
+    "count": 103,
+    "pct": 0.094,
+    "examples": [
+     {
+      "unique_key": "56420137",
+      "created_date": "2023-01-02T23:29:43.000",
+      "closed_date": "2023-01-03T01:39:19.000",
+      "agency": "NYPD",
+      "complaint_type": "Noise - Street/Sidewalk",
+      "descriptor": "Loud Talking",
+      "incident_zip": null,
+      "borough": "Unspecified",
+      "status": "Closed",
+      "latitude": "40.73289211575574",
+      "longitude": "-73.99318044109148",
+      "resolution_description": "The Police Department responded to the complaint and with the information available observed no evidence of th"
+     },
+     {
+      "unique_key": "56424313",
+      "created_date": "2023-01-02T23:29:37.000",
+      "closed_date": "2023-01-03T00:13:35.000",
+      "agency": "NYPD",
+      "complaint_type": "Noise - Residential",
+      "descriptor": "Loud Television",
+      "incident_zip": null,
+      "borough": "Unspecified",
+      "status": "Closed",
+      "latitude": "40.76825759150098",
+      "longitude": "-73.95438216439119",
+      "resolution_description": "The Police Department responded to the complaint and determined that police action was not necessary."
+     },
+     {
+      "unique_key": "56421808",
+      "created_date": "2023-01-02T23:29:08.000",
+      "closed_date": "2023-01-03T00:39:25.000",
+      "agency": "NYPD",
+      "complaint_type": "Illegal Parking",
+      "descriptor": "Blocked Hydrant",
+      "incident_zip": null,
+      "borough": "Unspecified",
+      "status": "Closed",
+      "latitude": "40.69441101678371",
+      "longitude": "-73.97605516572254",
+      "resolution_description": "The Police Department responded to the complaint and determined that police action was not necessary."
+     }
+    ]
+   },
+   {
+    "check": "ZIP disagrees with that ZIP's majority borough",
+    "count": 32,
+    "pct": 0.029,
+    "examples": [
+     {
+      "unique_key": "56594928",
+      "created_date": "2023-01-22T22:59:40.000",
+      "closed_date": "2023-03-24T12:13:11.000",
+      "agency": "HPD",
+      "complaint_type": "SAFETY",
+      "descriptor": "WINDOW GUARD BROKEN/MISSING",
+      "incident_zip": "10463",
+      "borough": "MANHATTAN",
+      "status": "Closed",
+      "latitude": "40.87512093148135",
+      "longitude": "-73.91246144190357",
+      "resolution_description": "The Department of Housing Preservation and Development inspected the following conditions. Violations were pre"
+     },
+     {
+      "unique_key": "56594077",
+      "created_date": "2023-01-22T22:59:40.000",
+      "closed_date": "2023-03-24T12:13:10.000",
+      "agency": "HPD",
+      "complaint_type": "SAFETY",
+      "descriptor": "WINDOW GUARD BROKEN/MISSING",
+      "incident_zip": "10463",
+      "borough": "MANHATTAN",
+      "status": "Closed",
+      "latitude": "40.87512093148135",
+      "longitude": "-73.91246144190357",
+      "resolution_description": "The Department of Housing Preservation and Development inspected the following conditions. Violations were iss"
+     },
+     {
+      "unique_key": "56593758",
+      "created_date": "2023-01-22T22:47:47.000",
+      "closed_date": "2023-03-17T20:50:01.000",
+      "agency": "HPD",
+      "complaint_type": "UNSANITARY CONDITION",
+      "descriptor": "GARBAGE/RECYCLING STORAGE",
+      "incident_zip": "10463",
+      "borough": "MANHATTAN",
+      "status": "Closed",
+      "latitude": "40.87512093148135",
+      "longitude": "-73.91246144190357",
+      "resolution_description": "The Department of Housing Preservation and Development inspected the following conditions. No violations were "
+     }
+    ]
+   },
+   {
+    "check": "descriptor missing",
+    "count": 754,
+    "pct": 0.689,
+    "examples": [
+     {
+      "unique_key": "56414102",
+      "created_date": "2023-01-01T23:06:50.000",
+      "closed_date": "2023-01-02T09:56:52.000",
+      "agency": "DHS",
+      "complaint_type": "Homeless Person Assistance",
+      "descriptor": null,
+      "incident_zip": null,
+      "borough": "MANHATTAN",
+      "status": "Closed",
+      "latitude": "40.70755483594316",
+      "longitude": "-74.01186296502267",
+      "resolution_description": "The mobile outreach response team went to the location provided but could not find the individual that you rep"
+     },
+     {
+      "unique_key": "56421425",
+      "created_date": "2023-01-02T23:22:42.000",
+      "closed_date": "2023-01-08T05:26:24.000",
+      "agency": "DHS",
+      "complaint_type": "Homeless Person Assistance",
+      "descriptor": null,
+      "incident_zip": null,
+      "borough": "MANHATTAN",
+      "status": "Closed",
+      "latitude": "40.798627809256374",
+      "longitude": "-73.94161893619888",
+      "resolution_description": "The mobile outreach response team went to the location provided but could not find the individual that you rep"
+     },
+     {
+      "unique_key": "56419633",
+      "created_date": "2023-01-02T23:19:26.000",
+      "closed_date": "2023-01-11T12:49:18.000",
+      "agency": "DHS",
+      "complaint_type": "Homeless Person Assistance",
+      "descriptor": null,
+      "incident_zip": null,
+      "borough": "QUEENS",
+      "status": "Closed",
+      "latitude": "40.733103520922796",
+      "longitude": "-73.8692299843164",
+      "resolution_description": "The mobile outreach response team went to the location provided but could not find the individual that you rep"
+     }
+    ]
+   },
+   {
+    "check": "exact duplicate rows (all fields except unique_key)",
+    "count": 412,
+    "pct": 0.376,
+    "examples": [
+     {
+      "unique_key": "56424980",
+      "created_date": "2023-01-02T23:29:54.000",
+      "closed_date": "2023-01-25T21:15:00.000",
+      "agency": "HPD",
+      "complaint_type": "UNSANITARY CONDITION",
+      "descriptor": "PESTS",
+      "incident_zip": "10040",
+      "borough": "MANHATTAN",
+      "status": "Closed",
+      "latitude": "40.857279091458864",
+      "longitude": "-73.93546897929161",
+      "resolution_description": "The Department of Housing Preservation and Development inspected the following conditions. Violations were iss"
+     },
+     {
+      "unique_key": "56443390",
+      "created_date": "2023-01-04T23:45:22.000",
+      "closed_date": "2023-01-05T16:30:10.000",
+      "agency": "HPD",
+      "complaint_type": "UNSANITARY CONDITION",
+      "descriptor": "PESTS",
+      "incident_zip": "10469",
+      "borough": "BRONX",
+      "status": "Closed",
+      "latitude": "40.87223830621903",
+      "longitude": "-73.86134148705608",
+      "resolution_description": "The Department of Housing Preservation and Development inspected the following conditions. Violations were iss"
+     },
+     {
+      "unique_key": "56437915",
+      "created_date": "2023-01-04T23:36:00.000",
+      "closed_date": "2023-01-04T23:45:00.000",
+      "agency": "DOT",
+      "complaint_type": "Traffic Signal Condition",
+      "descriptor": "Controller",
+      "incident_zip": "11215",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.66460568357004",
+      "longitude": "-73.97684444541294",
+      "resolution_description": "Service Request status for this request is available on the Department of Transportation\u00e2\u0080\u0099s website. Please c"
+     }
+    ]
+   },
+   {
+    "check": "near-duplicates: same address + type + descriptor within 1 hour",
+    "count": 10269,
+    "pct": 9.378,
+    "examples": [
+     {
+      "unique_key": "56418649",
+      "created_date": "2023-01-01T23:59:03.000",
+      "closed_date": "2023-01-02T01:57:54.000",
+      "agency": "NYPD",
+      "complaint_type": "Illegal Parking",
+      "descriptor": "Blocked Hydrant",
+      "incident_zip": "11368",
+      "borough": "QUEENS",
+      "status": "Closed",
+      "latitude": "40.74971607566625",
+      "longitude": "-73.85430602944669",
+      "resolution_description": "The Police Department responded to the complaint and took action to fix the condition."
+     },
+     {
+      "unique_key": "56414873",
+      "created_date": "2023-01-01T23:53:56.000",
+      "closed_date": "2023-01-02T03:18:23.000",
+      "agency": "NYPD",
+      "complaint_type": "Noise - Residential",
+      "descriptor": "Loud Music/Party",
+      "incident_zip": "11207",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.685990443664295",
+      "longitude": "-73.91377701800806",
+      "resolution_description": "The Police Department responded to the complaint and with the information available observed no evidence of th"
+     },
+     {
+      "unique_key": "56415934",
+      "created_date": "2023-01-01T23:51:11.000",
+      "closed_date": "2023-01-02T02:26:01.000",
+      "agency": "NYPD",
+      "complaint_type": "Noise - Residential",
+      "descriptor": "Loud Music/Party",
+      "incident_zip": "10465",
+      "borough": "BRONX",
+      "status": "Closed",
+      "latitude": "40.81576984567046",
+      "longitude": "-73.82581593151272",
+      "resolution_description": "The Police Department responded to the complaint and took action to fix the condition."
+     }
+    ]
+   },
+   {
+    "check": "phone number or e-mail pattern in descriptor",
+    "count": 0,
+    "pct": 0.0,
+    "examples": []
+   },
+   {
+    "check": "phone number or e-mail pattern in resolution_description",
+    "count": 1973,
+    "pct": 1.802,
+    "examples": [
+     {
+      "unique_key": "56422285",
+      "created_date": "2023-01-01T23:33:48.000",
+      "closed_date": "2023-01-02T00:00:00.000",
+      "agency": "DOB",
+      "complaint_type": "Emergency Response Team (ERT)",
+      "descriptor": "Lights From Parking Lot Shining On Building",
+      "incident_zip": "11249",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.71394002100322",
+      "longitude": "-73.9652878531727",
+      "resolution_description": "The Department of Buildings reviewed this complaint and closed it. If the problem still exists, please call 31"
+     },
+     {
+      "unique_key": "56416802",
+      "created_date": "2023-01-01T23:26:00.000",
+      "closed_date": "2023-01-08T14:00:00.000",
+      "agency": "DEP",
+      "complaint_type": "Noise",
+      "descriptor": "Noise: Alarms (NR3)",
+      "incident_zip": "11236",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.63780991573908",
+      "longitude": "-73.89553916301884",
+      "resolution_description": "The Department of Environmental Protection (DEP) didn't observe a violation of the NYC Air or Noise Code at th"
+     },
+     {
+      "unique_key": "56424323",
+      "created_date": "2023-01-01T23:03:30.000",
+      "closed_date": "2023-03-20T00:00:00.000",
+      "agency": "DOB",
+      "complaint_type": "Building/Use",
+      "descriptor": "Illegal Conversion Of Residential Building/Space",
+      "incident_zip": "11230",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.61151954611495",
+      "longitude": "-73.95976211957543",
+      "resolution_description": "The Department of Buildings attempted to investigate this complaint twice but could not gain access to the loc"
+     }
+    ]
+   },
+   {
+    "check": "complaint_type/descriptor pair seen only once in the sample",
+    "count": 155,
+    "pct": 0.142,
+    "examples": [
+     {
+      "unique_key": "56433423",
+      "created_date": "2023-01-03T23:45:03.000",
+      "closed_date": "2023-01-06T16:12:17.000",
+      "agency": "DOT",
+      "complaint_type": "Street Sign - Missing",
+      "descriptor": "St Name - Over Intersection",
+      "incident_zip": "10466",
+      "borough": "BRONX",
+      "status": "Closed",
+      "latitude": "40.88915687288368",
+      "longitude": "-73.82158014716151",
+      "resolution_description": "The Department of Transportation inspected the condition you reported. You can find additional information in "
+     },
+     {
+      "unique_key": "56426713",
+      "created_date": "2023-01-03T23:32:40.000",
+      "closed_date": "2023-01-12T07:18:19.000",
+      "agency": "DOT",
+      "complaint_type": "Street Sign - Damaged",
+      "descriptor": "Speed Limit",
+      "incident_zip": "10475",
+      "borough": "BRONX",
+      "status": "Closed",
+      "latitude": "40.88999153479684",
+      "longitude": "-73.81999014628414",
+      "resolution_description": "The Department of Transportation has completed the request or corrected the condition."
+     },
+     {
+      "unique_key": "56452452",
+      "created_date": "2023-01-04T23:40:18.000",
+      "closed_date": "2023-01-06T00:00:00.000",
+      "agency": "DOB",
+      "complaint_type": "General Construction/Plumbing",
+      "descriptor": "Smoking Ban - Smoking on Construction Site",
+      "incident_zip": "11220",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.64013558665195",
+      "longitude": "-74.02489462318684",
+      "resolution_description": "The Department of Buildings investigated this complaint and determined that no further action was necessary."
+     }
+    ]
+   },
+   {
+    "check": "complaint_type with the same name in different letter case",
+    "count": 14349,
+    "pct": 13.104,
+    "examples": [
+     {
+      "unique_key": "56414258",
+      "created_date": "2023-01-01T23:57:35.000",
+      "closed_date": "2023-01-04T23:04:30.000",
+      "agency": "HPD",
+      "complaint_type": "HEAT/HOT WATER",
+      "descriptor": "APARTMENT ONLY",
+      "incident_zip": "11225",
+      "borough": "BROOKLYN",
+      "status": "Closed",
+      "latitude": "40.660905078924074",
+      "longitude": "-73.94922207805784",
+      "resolution_description": "The Department of Housing Preservation and Development responded to a complaint of no heat or hot water and wa"
+     },
+     {
+      "unique_key": "56415775",
+      "created_date": "2023-01-01T23:57:24.000",
+      "closed_date": "2023-01-10T08:00:33.000",
+      "agency": "HPD",
+      "complaint_type": "WATER LEAK",
+      "descriptor": "HEAVY FLOW",
+      "incident_zip": "11379",
+      "borough": "QUEENS",
+      "status": "Closed",
+      "latitude": "40.723054310706374",
+      "longitude": "-73.86866164725193",
+      "resolution_description": "The Department of Housing Preservation and Development inspected the following conditions. Violations were iss"
+     },
+     {
+      "unique_key": "56416535",
+      "created_date": "2023-01-01T23:51:26.000",
+      "closed_date": "2023-01-03T19:25:04.000",
+      "agency": "HPD",
+      "complaint_type": "HEAT/HOT WATER",
+      "descriptor": "APARTMENT ONLY",
+      "incident_zip": "10032",
+      "borough": "MANHATTAN",
+      "status": "Closed",
+      "latitude": "40.83789948860798",
+      "longitude": "-73.94208319610429",
+      "resolution_description": "The complaint you filed is a duplicate of a condition already reported by another tenant for a building-wide c"
+     }
+    ]
+   },
+   {
+    "check": "distinct complaint_type values",
+    "count": 171,
+    "pct": null,
+    "examples": [
+     {
+      "casing_variants": [
+       "APPLIANCE",
+       "Appliance",
+       "DOOR/WINDOW",
+       "Door/Window",
+       "ELECTRIC",
+       "ELEVATOR",
+       "Electric",
+       "Elevator",
+       "FLOORING/STAIRS",
+       "Flooring/Stairs"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "sizes": {
+  "raw_rows": 109500,
+  "clean_pool_rows": 103571,
+  "reference_rows": 51785
+ },
+ "detectors": {
+  "a_schema_column|rule": {
+   "problem": "a_schema_column",
+   "family": "rule",
+   "detector": "expected column set",
+   "level": "batch",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": null,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "batches",
+   "alerts_on_raw_batches": 0,
+   "raw_example": [],
+   "rows_per_sec": 149006722.85058913,
+   "cpu_sec_per_million_rows": 0.00671110659216841,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 1.5409896150231361e-06,
+   "explain_score": 3,
+   "example_alert": "schema: column 'status' missing"
+  },
+  "b_type_change|rule": {
+   "problem": "b_type_change",
+   "family": "rule",
+   "detector": "declared dtype per column",
+   "level": "batch",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 1.0,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "batches",
+   "alerts_on_raw_batches": 0,
+   "raw_example": [],
+   "rows_per_sec": 9253783.765615566,
+   "cpu_sec_per_million_rows": 0.10806390394767125,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 8.749775588512421e-07,
+   "explain_score": 3,
+   "example_alert": "type: 'longitude' arrived as object (expected float64)"
+  },
+  "c_date_format|rule": {
+   "problem": "c_date_format",
+   "family": "rule",
+   "detector": "ISO-8601 regex on date columns",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 1.0,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 0,
+   "raw_example": [],
+   "rows_per_sec": 1245043.5836695225,
+   "cpu_sec_per_million_rows": 0.8031847343469659,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 5.00003807246685e-07,
+   "explain_score": 3,
+   "example_alert": "date: row 1400 created_date '10/02/2023 11:25:15 PM' is not ISO-8601"
+  },
+  "d_latlon_swap|rule": {
+   "problem": "d_latlon_swap",
+   "family": "rule",
+   "detector": "NYC bounding box",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 1.0,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 0,
+   "raw_example": [],
+   "rows_per_sec": 5634506.887247739,
+   "cpu_sec_per_million_rows": 0.17747782015552124,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 3.3294782042503357e-07,
+   "explain_score": 3,
+   "example_alert": "geo: row 177 lat=-73.89532162131074 lon=40.88443860848069 outside NYC box; looks swapped"
+  },
+  "e_exact_dup|rule": {
+   "problem": "e_exact_dup",
+   "family": "rule",
+   "detector": "identical row (incl. unique_key)",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 1.0,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 0,
+   "raw_example": [],
+   "rows_per_sec": 455455.18603588466,
+   "cpu_sec_per_million_rows": 2.19560569439034,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 2.4994369596242905e-07,
+   "explain_score": 3,
+   "example_alert": "dup: row 361 identical to an earlier row (unique_key 59160011)"
+  },
+  "f_near_dup|rule": {
+   "problem": "f_near_dup",
+   "family": "rule",
+   "detector": "same address+type+descriptor within 15 min",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 0.8444523993006356,
+   "false_alarm_rate": 0.0045,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 33,
+   "raw_example": [
+    "near-dup: row 636 same address/type/descriptor as another request within 15 min"
+   ],
+   "rows_per_sec": 226251.4746774596,
+   "cpu_sec_per_million_rows": 4.419860694501919,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 2.4994369596242905e-07,
+   "explain_score": 3,
+   "example_alert": "near-dup: row 69 same address/type/descriptor as another request within 15 min"
+  },
+  "g_null_spike|rule": {
+   "problem": "g_null_spike",
+   "family": "rule",
+   "detector": "per-agency null rate > 30% on location fields",
+   "level": "batch",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 0.8310258998891638,
+   "false_alarm_rate": 1.0,
+   "false_alarm_unit": "batches",
+   "alerts_on_raw_batches": 4,
+   "raw_example": [
+    "nulls: agency DHS has 45% null incident_zip (threshold 30%, 9 of 20 rows)"
+   ],
+   "rows_per_sec": 975285.9882740136,
+   "cpu_sec_per_million_rows": 1.025340271492799,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 2.50060111284256e-07,
+   "explain_score": 3,
+   "example_alert": "nulls: agency DEP has 51% null incident_zip (threshold 30%, 32 of 63 rows)"
+  },
+  "h_closed_before_created|rule": {
+   "problem": "h_closed_before_created",
+   "family": "rule",
+   "detector": "closed_date >= created_date",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 1.0,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 0,
+   "raw_example": [],
+   "rows_per_sec": 3202261.99668185,
+   "cpu_sec_per_million_rows": 0.31227925792336464,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 2.9208604246377945e-07,
+   "explain_score": 3,
+   "example_alert": "dates: row 109 closed 2023-10-09 02:22:11 is before created 2023-11-01 23:28:36"
+  },
+  "i_zip_borough|rule": {
+   "problem": "i_zip_borough",
+   "family": "rule",
+   "detector": "ZIP->borough lookup (+ prefix fallback)",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 1.0,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 3,
+   "raw_example": [
+    "zip: row 298 ZIP 10463 belongs to BRONX but borough is MANHATTAN"
+   ],
+   "rows_per_sec": 1344600.5653595354,
+   "cpu_sec_per_million_rows": 0.7437152904458344,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.004140499979257584,
+   "explain_score": 3,
+   "example_alert": "zip: row 9 ZIP 11205 belongs to BROOKLYN but borough is QUEENS"
+  },
+  "j_type_descriptor|rule": {
+   "problem": "j_type_descriptor",
+   "family": "rule",
+   "detector": "allowed (type, descriptor) pairs",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 0.9056020263300344,
+   "false_alarm_rate": 0.0022,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 85,
+   "raw_example": [
+    "pair: row 142 descriptor 'Air: Odor/Fumes, Restaurant (AD2)' never occurs with complaint type 'Air Quality'"
+   ],
+   "rows_per_sec": 4670379.397543656,
+   "cpu_sec_per_million_rows": 0.2141153672710061,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.008362332941032946,
+   "explain_score": 3,
+   "example_alert": "pair: row 73 descriptor 'No Certificate Of Occupancy/Illegal/Contrary To CO' never occurs with complaint type 'Noise - Residential'"
+  },
+  "k_resolution_status|rule": {
+   "problem": "k_resolution_status",
+   "family": "rule",
+   "detector": "closure/pending keywords vs status",
+   "level": "row",
+   "detection_rate": 0.515,
+   "precision_on_corrupted": 0.1969185645272602,
+   "false_alarm_rate": 0.0394,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 545,
+   "raw_example": [
+    "status: row 16 status 'Closed' but resolution reads \"The Department of Environmental Protection (DEP) didn't observe a viol\""
+   ],
+   "rows_per_sec": 158024.13525103824,
+   "cpu_sec_per_million_rows": 6.328147269474964,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 4.00003045797348e-06,
+   "explain_score": 3,
+   "example_alert": "status: row 17 status 'Open' but resolution reads 'The Police Department responded to the complaint and with the informat'"
+  },
+  "l_pii|rule": {
+   "problem": "l_pii",
+   "family": "rule",
+   "detector": "phone/e-mail/name-after-title regex",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 0.9354689427292943,
+   "false_alarm_rate": 0.0027,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 198,
+   "raw_example": [
+    "pii: row 16 resolution_description contains phone"
+   ],
+   "rows_per_sec": 70645.95707696662,
+   "cpu_sec_per_million_rows": 14.155091690675667,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 5.00003807246685e-07,
+   "explain_score": 3,
+   "example_alert": "pii: row 44 resolution_description contains e-mail"
+  },
+  "a_schema_column|stat": {
+   "problem": "a_schema_column",
+   "family": "stat",
+   "detector": "column-profile match (renames by profile)",
+   "level": "batch",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": null,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "batches",
+   "alerts_on_raw_batches": 0,
+   "raw_example": [],
+   "rows_per_sec": 7043354.562407972,
+   "cpu_sec_per_million_rows": 0.14197780207420388,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.4165030410513282,
+   "explain_score": 2,
+   "example_alert": "profile: reference column 'latitude' absent; new column 'lat' matches its profile (distance 0.05)"
+  },
+  "b_type_change|stat": {
+   "problem": "b_type_change",
+   "family": "stat",
+   "detector": "numeric parse-rate vs reference (binomial z)",
+   "level": "batch",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 1.0,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "batches",
+   "alerts_on_raw_batches": 0,
+   "raw_example": [],
+   "rows_per_sec": 4759891.26160798,
+   "cpu_sec_per_million_rows": 0.21008883292476335,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.0003894590772688389,
+   "explain_score": 2,
+   "example_alert": "parse-rate: 'latitude' 96.2% numeric vs 100.0% in reference (z=-172)"
+  },
+  "c_date_format|stat": {
+   "problem": "c_date_format",
+   "family": "stat",
+   "detector": "date shape-pattern frequency",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 1.0,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 0,
+   "raw_example": [],
+   "rows_per_sec": 159650.82798288143,
+   "cpu_sec_per_million_rows": 6.263669362912576,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.1006429169792682,
+   "explain_score": 2,
+   "example_alert": "date-shape: row 1400 shape '99/99/9999 99:99:99 AA' rare in reference (usual '9999-99-99A99:99:99.999')"
+  },
+  "d_latlon_swap|stat": {
+   "problem": "d_latlon_swap",
+   "family": "stat",
+   "detector": "IsolationForest on (lat, lon)",
+   "level": "row",
+   "detection_rate": 0.0,
+   "precision_on_corrupted": 0.0,
+   "false_alarm_rate": 0.00035,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 8,
+   "raw_example": [
+    "geo-outlier: row 1370 (lat 40.51344232595497, lon -74.24784183159744) score -0.77 < -0.77"
+   ],
+   "rows_per_sec": 175043.59872708033,
+   "cpu_sec_per_million_rows": 5.712862436970075,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.25944845797494054,
+   "explain_score": 1,
+   "example_alert": "geo-outlier: row 1222 (lat 40.50207761742496, lon -74.24835705593135) score -0.77 < -0.77"
+  },
+  "e_exact_dup|stat": {
+   "problem": "e_exact_dup",
+   "family": "stat",
+   "detector": "row-hash duplicate rate vs reference",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 1.0,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 0,
+   "raw_example": [],
+   "rows_per_sec": 336654.04690605676,
+   "cpu_sec_per_million_rows": 2.970408373789874,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.11445604206528515,
+   "explain_score": 2,
+   "example_alert": "dup-rate: 1.96% of rows repeat a row-hash (reference 0.00%); row 353 is one"
+  },
+  "f_near_dup|stat": {
+   "problem": "f_near_dup",
+   "family": "stat",
+   "detector": "TF-IDF cosine within (type, ZIP) block, <1h",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 0.7942767295597486,
+   "false_alarm_rate": 0.0059,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 47,
+   "raw_example": [
+    "near-dup: row 636 ~ row 637 (cosine 1.00, 1 min apart, same type & ZIP)"
+   ],
+   "rows_per_sec": 7747.9165731056755,
+   "cpu_sec_per_million_rows": 129.06695504068392,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 3.7756695830030367,
+   "explain_score": 2,
+   "example_alert": "near-dup: row 298 ~ row 854 (cosine 1.00, 6 min apart, same type & ZIP)"
+  },
+  "g_null_spike|stat": {
+   "problem": "g_null_spike",
+   "family": "stat",
+   "detector": "per-agency null-rate z-score vs reference",
+   "level": "batch",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 0.9542857142857143,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "batches",
+   "alerts_on_raw_batches": 5,
+   "raw_example": [
+    "null-spike: DHS incident_zip null 45% vs reference 0.5% (z=28, n=20)"
+   ],
+   "rows_per_sec": 889595.1651829588,
+   "cpu_sec_per_million_rows": 1.1241068287442129,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.016582958051003516,
+   "explain_score": 2,
+   "example_alert": "null-spike: DEP incident_zip null 51% vs reference 0.5% (z=57, n=63)"
+  },
+  "h_closed_before_created|stat": {
+   "problem": "h_closed_before_created",
+   "family": "stat",
+   "detector": "duration below reference 0.05th pct",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 1.0,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 0,
+   "raw_example": [],
+   "rows_per_sec": 2716468.5665035625,
+   "cpu_sec_per_million_rows": 0.3681250032968819,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.009456208092160523,
+   "explain_score": 2,
+   "example_alert": "duration: row 16 closed-created = -291.3 h, below reference 0.05th percentile (0.0 h)"
+  },
+  "i_zip_borough|stat": {
+   "problem": "i_zip_borough",
+   "family": "stat",
+   "detector": "P(borough | ZIP) < 2%",
+   "level": "row",
+   "detection_rate": 0.925,
+   "precision_on_corrupted": 1.0,
+   "false_alarm_rate": 0.0,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 3,
+   "raw_example": [
+    "zip-prob: row 298 P(MANHATTAN | 10463) = 0.1% (n=477)"
+   ],
+   "rows_per_sec": 1522849.0601385059,
+   "cpu_sec_per_million_rows": 0.6566638980681697,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.004211958032101393,
+   "explain_score": 2,
+   "example_alert": "zip-prob: row 15 P(MANHATTAN | 10469) = 0.2% (n=293)"
+  },
+  "j_type_descriptor|stat": {
+   "problem": "j_type_descriptor",
+   "family": "stat",
+   "detector": "P(descriptor | type) < 0.2%",
+   "level": "row",
+   "detection_rate": 0.9949999999999999,
+   "precision_on_corrupted": 0.9525916322286146,
+   "false_alarm_rate": 0.00125,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 17,
+   "raw_example": [
+    "pair-prob: row 142 P('Air: Odor/Fumes, Restaurant (AD2)' | 'Air Quality') = 0.17%"
+   ],
+   "rows_per_sec": 2349417.019773271,
+   "cpu_sec_per_million_rows": 0.4256375056381027,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.009326832951046526,
+   "explain_score": 2,
+   "example_alert": "pair-prob: row 6 P('Planted More Than 2 Years Ago' | 'Noise - Commercial') = 0.00%"
+  },
+  "k_resolution_status|stat": {
+   "problem": "k_resolution_status",
+   "family": "stat",
+   "detector": "TF-IDF + logistic regression: text -> closed?",
+   "level": "row",
+   "detection_rate": 0.8800000000000001,
+   "precision_on_corrupted": 0.9473874068240903,
+   "false_alarm_rate": 0.0009,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 59,
+   "raw_example": [
+    "status-model: row 291 status 'In Progress' but P(closed | text) = 0.97"
+   ],
+   "rows_per_sec": 72520.84481008947,
+   "cpu_sec_per_million_rows": 13.789138869227221,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.7174476659856737,
+   "explain_score": 1,
+   "example_alert": "status-model: row 16 status 'In Progress' but P(closed | text) = 0.99"
+  },
+  "l_pii|stat": {
+   "problem": "l_pii",
+   "family": "stat",
+   "detector": "out-of-vocabulary tokens vs reference text",
+   "level": "row",
+   "detection_rate": 1.0,
+   "precision_on_corrupted": 0.8413041590364175,
+   "false_alarm_rate": 0.0048,
+   "false_alarm_unit": "rows",
+   "alerts_on_raw_batches": 279,
+   "raw_example": [
+    "text-oov: row 16 unseen tokens ['observe', \"you're\"] / digit run '212-639-9675'"
+   ],
+   "rows_per_sec": 185525.3151068881,
+   "cpu_sec_per_million_rows": 5.390099994838238,
+   "api_usd_per_million_rows": 0.0,
+   "fit_sec": 0.26926150009967387,
+   "explain_score": 2,
+   "example_alert": "text-oov: row 17 unseen tokens ['john', 'ivanova'] / digit run '646.430.5987'"
+  }
+ },
+ "llm_rows": {
+  "status": "not run: no GEMINI_API_KEY (or LLM_OFFLINE=1) and no cached response"
+ },
+ "llm_schema": {
+  "status": "not run: no GEMINI_API_KEY (or LLM_OFFLINE=1) and no cached response"
+ },
+ "hybrid": {
+  "plan": {
+   "a_schema_column": {
+    "accept": [
+     "rule"
+    ],
+    "candidates": [],
+    "why": "rule score 1.000 vs stat 1.000"
+   },
+   "b_type_change": {
+    "accept": [
+     "rule"
+    ],
+    "candidates": [],
+    "why": "rule score 1.000 vs stat 1.000"
+   },
+   "c_date_format": {
+    "accept": [
+     "rule"
+    ],
+    "candidates": [],
+    "why": "rule score 1.000 vs stat 1.000"
+   },
+   "d_latlon_swap": {
+    "accept": [
+     "rule"
+    ],
+    "candidates": [],
+    "why": "rule score 1.000 vs stat -0.007"
+   },
+   "e_exact_dup": {
+    "accept": [
+     "rule"
+    ],
+    "candidates": [],
+    "why": "rule score 1.000 vs stat 1.000"
+   },
+   "f_near_dup": {
+    "accept": [
+     "rule"
+    ],
+    "candidates": [],
+    "why": "rule score 0.910 vs stat 0.882"
+   },
+   "g_null_spike": {
+    "accept": [
+     "stat"
+    ],
+    "candidates": [],
+    "why": "stat score 1.000 vs rule -19.000"
+   },
+   "h_closed_before_created": {
+    "accept": [
+     "rule"
+    ],
+    "candidates": [],
+    "why": "rule score 1.000 vs stat 1.000"
+   },
+   "i_zip_borough": {
+    "accept": [
+     "rule"
+    ],
+    "candidates": [],
+    "why": "rule score 1.000 vs stat 0.925"
+   },
+   "j_type_descriptor": {
+    "accept": [
+     "stat"
+    ],
+    "candidates": [],
+    "why": "stat score 0.970 vs rule 0.956"
+   },
+   "k_resolution_status": {
+    "accept": [
+     "stat"
+    ],
+    "candidates": [],
+    "why": "stat score 0.862 vs rule -0.273"
+   },
+   "l_pii": {
+    "accept": [
+     "rule"
+    ],
+    "candidates": [],
+    "why": "rule score 0.946 vs stat 0.904"
+   }
+  },
+  "llm_stage": "skipped (no LLM available: candidates not confirmed)",
+  "row_problem_catch_rate": {
+   "c_date_format": 1.0,
+   "d_latlon_swap": 1.0,
+   "e_exact_dup": 1.0,
+   "f_near_dup": 1.0,
+   "h_closed_before_created": 1.0,
+   "i_zip_borough": 1.0,
+   "j_type_descriptor": 0.97,
+   "k_resolution_status": 0.87,
+   "l_pii": 1.0
+  },
+  "batch_problem_catch_rate": {
+   "a_schema_column": 1.0,
+   "b_type_change": 1.0,
+   "g_null_spike": 1.0
+  },
+  "clean_false_alarm_rate_rows": 0.0067,
+  "rows_processed": 20200,
+  "rows_per_sec_excl_llm": 26357.68593050787,
+  "llm_calls": 0,
+  "llm_rows_reviewed": 0,
+  "llm_share_of_rows": 0.0,
+  "llm_usd_total": 0.0,
+  "usd_per_million_rows": 0.0,
+  "llm_rows_skipped_by_cap": 0
+ },
+ "elapsed_sec": 20.4
+}

@@ -1,0 +1,504 @@
+{
+ "fy": "2025-26",
+ "_provenance": "LLM-compiled from project_a/sources/fy2025_26_rules.md; reviewed per REVIEW_LOG.md",
+ "tables": {
+  "old_below_60": [
+   [
+    0,
+    0
+   ],
+   [
+    250000,
+    0.05
+   ],
+   [
+    500000,
+    0.2
+   ],
+   [
+    1000000,
+    0.3
+   ]
+  ],
+  "old_senior": [
+   [
+    0,
+    0
+   ],
+   [
+    300000,
+    0.05
+   ],
+   [
+    500000,
+    0.2
+   ],
+   [
+    1000000,
+    0.3
+   ]
+  ],
+  "old_super_senior": [
+   [
+    0,
+    0
+   ],
+   [
+    500000,
+    0.2
+   ],
+   [
+    1000000,
+    0.3
+   ]
+  ],
+  "new_all_ages": [
+   [
+    0,
+    0
+   ],
+   [
+    400000,
+    0.05
+   ],
+   [
+    800000,
+    0.1
+   ],
+   [
+    1200000,
+    0.15
+   ],
+   [
+    1600000,
+    0.2
+   ],
+   [
+    2000000,
+    0.25
+   ],
+   [
+    2400000,
+    0.3
+   ]
+  ]
+ },
+ "regimes": {
+  "old": {
+   "steps": [
+    {
+     "name": "gross",
+     "expr": "gross_salary",
+     "clause": "O-TI",
+     "line_item": {
+      "label": "gross_salary",
+      "stage": "income",
+      "sign": 1
+     }
+    },
+    {
+     "name": "hra_exemption",
+     "expr": "min(hra_received, max(0, rent_paid - 0.10 * basic_da), (0.50 if metro else 0.40) * basic_da) if (hra_received > 0 and rent_paid > 0) else 0",
+     "clause": "O-HRA",
+     "line_item": {
+      "label": "hra_exemption",
+      "stage": "income",
+      "sign": -1
+     }
+    },
+    {
+     "name": "salary_after_exemption",
+     "expr": "gross - hra_exemption",
+     "clause": "O-TI",
+     "line_item": null
+    },
+    {
+     "name": "standard_deduction",
+     "expr": "min(50000, salary_after_exemption)",
+     "clause": "O-SD",
+     "line_item": {
+      "label": "standard_deduction",
+      "stage": "income",
+      "sign": -1
+     }
+    },
+    {
+     "name": "income_from_salary",
+     "expr": "salary_after_exemption - standard_deduction",
+     "clause": "O-TI",
+     "line_item": null
+    },
+    {
+     "name": "house_property_loss",
+     "expr": "min(home_loan_interest, 200000, income_from_salary)",
+     "clause": "O-HP",
+     "line_item": {
+      "label": "house_property_loss",
+      "stage": "income",
+      "sign": -1
+     }
+    },
+    {
+     "name": "gross_total_income",
+     "expr": "income_from_salary - house_property_loss",
+     "clause": "O-TI",
+     "line_item": null
+    },
+    {
+     "name": "senior",
+     "expr": "resident and age >= 60",
+     "clause": "G-AGE",
+     "line_item": null
+    },
+    {
+     "name": "d80c",
+     "expr": "min(sec80c, 150000)",
+     "clause": "O-80C",
+     "line_item": {
+      "label": "deduction_80c",
+      "stage": "income",
+      "sign": -1
+     }
+    },
+    {
+     "name": "d80ccd1b",
+     "expr": "min(sec80ccd1b, 50000)",
+     "clause": "O-80CCD1B",
+     "line_item": {
+      "label": "deduction_80ccd1b",
+      "stage": "income",
+      "sign": -1
+     }
+    },
+    {
+     "name": "d80d_self",
+     "expr": "min(sec80d_self_family, 50000 if (senior or spouse_senior) else 25000)",
+     "clause": "O-80D-SELF",
+     "line_item": {
+      "label": "deduction_80d_self_family",
+      "stage": "income",
+      "sign": -1
+     }
+    },
+    {
+     "name": "d80d_parents",
+     "expr": "min(sec80d_parents, 50000 if parents_senior else 25000)",
+     "clause": "O-80D-PARENTS",
+     "line_item": {
+      "label": "deduction_80d_parents",
+      "stage": "income",
+      "sign": -1
+     }
+    },
+    {
+     "name": "via_claimed",
+     "expr": "d80c + d80ccd1b + d80d_self + d80d_parents",
+     "clause": "O-VIA-CAP",
+     "line_item": null
+    },
+    {
+     "name": "via_cap_adjustment",
+     "expr": "max(0, via_claimed - gross_total_income)",
+     "clause": "O-VIA-CAP",
+     "line_item": {
+      "label": "deduction_cap_adjustment",
+      "stage": "income",
+      "sign": 1
+     }
+    },
+    {
+     "name": "ti_before_rounding",
+     "expr": "gross_total_income - via_claimed + via_cap_adjustment",
+     "clause": "O-TI",
+     "line_item": null
+    },
+    {
+     "name": "total_income",
+     "expr": "round10(ti_before_rounding)",
+     "clause": "G-ROUND-INCOME",
+     "line_item": null
+    },
+    {
+     "name": "income_rounding",
+     "expr": "total_income - ti_before_rounding",
+     "clause": "G-ROUND-INCOME",
+     "line_item": {
+      "label": "rounding_total_income",
+      "stage": "income",
+      "sign": 1
+     }
+    },
+    {
+     "name": "slab_table",
+     "expr": "('old_super_senior' if age >= 80 else ('old_senior' if age >= 60 else 'old_below_60')) if resident else 'old_below_60'",
+     "clause": "G-AGE",
+     "line_item": null
+    },
+    {
+     "name": "tax_on_income",
+     "expr": "slab_tax(total_income, slab_table)",
+     "clause": "O-SLAB",
+     "line_item": {
+      "label": "slab_tax",
+      "stage": "tax",
+      "sign": 1
+     }
+    },
+    {
+     "name": "rebate",
+     "expr": "min(tax_on_income, 12500) if (resident and total_income <= 500000) else 0",
+     "clause": "O-87A",
+     "line_item": {
+      "label": "rebate_87a",
+      "stage": "tax",
+      "sign": -1
+     }
+    },
+    {
+     "name": "tax_after_rebate",
+     "expr": "tax_on_income - rebate",
+     "clause": "G-ORDER",
+     "line_item": null
+    },
+    {
+     "name": "sc_rate",
+     "expr": "0.37 if total_income > 50000000 else (0.25 if total_income > 20000000 else (0.15 if total_income > 10000000 else (0.10 if total_income > 5000000 else 0)))",
+     "clause": "O-SURCHARGE",
+     "line_item": null
+    },
+    {
+     "name": "surcharge",
+     "expr": "tax_after_rebate * sc_rate",
+     "clause": "O-SURCHARGE",
+     "line_item": {
+      "label": "surcharge",
+      "stage": "tax",
+      "sign": 1
+     }
+    },
+    {
+     "name": "mr_threshold",
+     "expr": "50000000 if total_income > 50000000 else (20000000 if total_income > 20000000 else (10000000 if total_income > 10000000 else 5000000))",
+     "clause": "O-MR",
+     "line_item": null
+    },
+    {
+     "name": "mr_base_rate",
+     "expr": "0.25 if total_income > 50000000 else (0.15 if total_income > 20000000 else (0.10 if total_income > 10000000 else 0))",
+     "clause": "O-MR",
+     "line_item": null
+    },
+    {
+     "name": "mr_limit",
+     "expr": "slab_tax(mr_threshold, slab_table) * (1 + mr_base_rate) + (total_income - mr_threshold)",
+     "clause": "O-MR",
+     "line_item": null
+    },
+    {
+     "name": "marginal_relief",
+     "expr": "max(0, tax_after_rebate + surcharge - mr_limit) if sc_rate > 0 else 0",
+     "clause": "O-MR",
+     "line_item": {
+      "label": "surcharge_marginal_relief",
+      "stage": "tax",
+      "sign": -1
+     }
+    },
+    {
+     "name": "cess",
+     "expr": "(tax_after_rebate + surcharge - marginal_relief) * 0.04",
+     "clause": "O-CESS",
+     "line_item": {
+      "label": "cess",
+      "stage": "tax",
+      "sign": 1
+     }
+    },
+    {
+     "name": "tax_exact",
+     "expr": "tax_after_rebate + surcharge - marginal_relief + cess",
+     "clause": "G-ORDER",
+     "line_item": null
+    },
+    {
+     "name": "tax_payable",
+     "expr": "round10(tax_exact)",
+     "clause": "G-ROUND-TAX",
+     "line_item": null
+    },
+    {
+     "name": "tax_rounding",
+     "expr": "tax_payable - tax_exact",
+     "clause": "G-ROUND-TAX",
+     "line_item": {
+      "label": "rounding_tax",
+      "stage": "tax",
+      "sign": 1
+     }
+    }
+   ],
+   "total_income": "total_income",
+   "tax_payable": "tax_payable"
+  },
+  "new": {
+   "steps": [
+    {
+     "name": "gross",
+     "expr": "gross_salary",
+     "clause": "N-TI",
+     "line_item": {
+      "label": "gross_salary",
+      "stage": "income",
+      "sign": 1
+     }
+    },
+    {
+     "name": "standard_deduction",
+     "expr": "min(75000, gross)",
+     "clause": "N-SD",
+     "line_item": {
+      "label": "standard_deduction",
+      "stage": "income",
+      "sign": -1
+     }
+    },
+    {
+     "name": "ti_before_rounding",
+     "expr": "gross - standard_deduction",
+     "clause": "N-TI",
+     "line_item": null
+    },
+    {
+     "name": "total_income",
+     "expr": "round10(ti_before_rounding)",
+     "clause": "G-ROUND-INCOME",
+     "line_item": null
+    },
+    {
+     "name": "income_rounding",
+     "expr": "total_income - ti_before_rounding",
+     "clause": "G-ROUND-INCOME",
+     "line_item": {
+      "label": "rounding_total_income",
+      "stage": "income",
+      "sign": 1
+     }
+    },
+    {
+     "name": "tax_on_income",
+     "expr": "slab_tax(total_income, 'new_all_ages')",
+     "clause": "N-SLAB",
+     "line_item": {
+      "label": "slab_tax",
+      "stage": "tax",
+      "sign": 1
+     }
+    },
+    {
+     "name": "rebate",
+     "expr": "min(tax_on_income, 60000) if (resident and total_income <= 1200000) else 0",
+     "clause": "N-87A",
+     "line_item": {
+      "label": "rebate_87a",
+      "stage": "tax",
+      "sign": -1
+     }
+    },
+    {
+     "name": "rebate_marginal_relief",
+     "expr": "(tax_on_income - (total_income - 1200000)) if (resident and total_income > 1200000 and tax_on_income > total_income - 1200000) else 0",
+     "clause": "N-87A-MR",
+     "line_item": {
+      "label": "rebate_87a_marginal_relief",
+      "stage": "tax",
+      "sign": -1
+     }
+    },
+    {
+     "name": "tax_after_rebate",
+     "expr": "tax_on_income - rebate - rebate_marginal_relief",
+     "clause": "G-ORDER",
+     "line_item": null
+    },
+    {
+     "name": "sc_rate",
+     "expr": "0.25 if total_income > 20000000 else (0.15 if total_income > 10000000 else (0.10 if total_income > 5000000 else 0))",
+     "clause": "N-SURCHARGE",
+     "line_item": null
+    },
+    {
+     "name": "surcharge",
+     "expr": "tax_after_rebate * sc_rate",
+     "clause": "N-SURCHARGE",
+     "line_item": {
+      "label": "surcharge",
+      "stage": "tax",
+      "sign": 1
+     }
+    },
+    {
+     "name": "mr_threshold",
+     "expr": "20000000 if total_income > 20000000 else (10000000 if total_income > 10000000 else 5000000)",
+     "clause": "N-MR",
+     "line_item": null
+    },
+    {
+     "name": "mr_base_rate",
+     "expr": "0.15 if total_income > 20000000 else (0.10 if total_income > 10000000 else 0)",
+     "clause": "N-MR",
+     "line_item": null
+    },
+    {
+     "name": "mr_limit",
+     "expr": "slab_tax(mr_threshold, 'new_all_ages') * (1 + mr_base_rate) + (total_income - mr_threshold)",
+     "clause": "N-MR",
+     "line_item": null
+    },
+    {
+     "name": "marginal_relief",
+     "expr": "max(0, tax_after_rebate + surcharge - mr_limit) if sc_rate > 0 else 0",
+     "clause": "N-MR",
+     "line_item": {
+      "label": "surcharge_marginal_relief",
+      "stage": "tax",
+      "sign": -1
+     }
+    },
+    {
+     "name": "cess",
+     "expr": "(tax_after_rebate + surcharge - marginal_relief) * 0.04",
+     "clause": "N-CESS",
+     "line_item": {
+      "label": "cess",
+      "stage": "tax",
+      "sign": 1
+     }
+    },
+    {
+     "name": "tax_exact",
+     "expr": "tax_after_rebate + surcharge - marginal_relief + cess",
+     "clause": "G-ORDER",
+     "line_item": null
+    },
+    {
+     "name": "tax_payable",
+     "expr": "round10(tax_exact)",
+     "clause": "G-ROUND-TAX",
+     "line_item": null
+    },
+    {
+     "name": "tax_rounding",
+     "expr": "tax_payable - tax_exact",
+     "clause": "G-ROUND-TAX",
+     "line_item": {
+      "label": "rounding_tax",
+      "stage": "tax",
+      "sign": 1
+     }
+    }
+   ],
+   "total_income": "total_income",
+   "tax_payable": "tax_payable"
+  }
+ }
+}

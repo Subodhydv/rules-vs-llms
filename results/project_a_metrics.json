@@ -1,0 +1,151 @@
+{
+ "llm_status": "offline (cache entries: 22)",
+ "model": "gemini-2.5-flash",
+ "suite_size": 230,
+ "impls": {
+  "rules": {
+   "impl": "rules",
+   "n": 230,
+   "correct": 230,
+   "accuracy": 1.0,
+   "errors": 0,
+   "traceable": 1.0,
+   "repeat_inputs": 3,
+   "distinct_answers_per_input": [
+    1,
+    1,
+    1
+   ],
+   "deterministic": true,
+   "latency_ms_p50": 0.13137503992766142,
+   "latency_ms_p95": 0.2102919388562441,
+   "cost_per_1000_usd": 0.0,
+   "failures": []
+  },
+  "compiled": {
+   "impl": "compiled",
+   "n": 230,
+   "correct": 230,
+   "accuracy": 1.0,
+   "errors": 0,
+   "traceable": 1.0,
+   "repeat_inputs": 3,
+   "distinct_answers_per_input": [
+    1,
+    1,
+    1
+   ],
+   "deterministic": true,
+   "latency_ms_p50": 0.3975420258939266,
+   "latency_ms_p95": 0.4586250288411975,
+   "cost_per_1000_usd": 0.0,
+   "failures": []
+  },
+  "llm_query": {
+   "impl": "llm_query",
+   "status": "not run: no GEMINI_API_KEY (or LLM_OFFLINE=1) and no cached response"
+  }
+ },
+ "gemini_compile_fy2425": {
+  "status": "not run: no GEMINI_API_KEY (or LLM_OFFLINE=1) and no cached response"
+ },
+ "parsers": {
+  "rule": {
+   "dev50": {
+    "n": 50,
+    "overall_correct": 50,
+    "complete_exact": "29/29",
+    "clarify_correct": "21/21",
+    "guessed_when_should_ask": 0,
+    "over_asked": 0,
+    "wrong_field_values": 0,
+    "ms_per_item": 0.1693008397705853,
+    "failures": []
+   },
+   "heldout20": {
+    "n": 20,
+    "overall_correct": 16,
+    "complete_exact": "10/13",
+    "clarify_correct": "6/7",
+    "guessed_when_should_ask": 0,
+    "over_asked": 2,
+    "wrong_field_values": 1,
+    "ms_per_item": 0.10362710454501212,
+    "failures": [
+     {
+      "id": "H05",
+      "style": "out-of-scope",
+      "expected": "clarify",
+      "got": "clarify",
+      "asked": [
+       "gross_salary"
+      ],
+      "ok": false,
+      "kind": "asked-wrong-thing",
+      "missing": [
+       "out_of_scope"
+      ]
+     },
+     {
+      "id": "H07",
+      "style": "casual",
+      "expected": "complete",
+      "got": "complete",
+      "asked": [],
+      "ok": false,
+      "kind": "wrong-field",
+      "diffs": {
+       "sec80d_self_family": [
+        0,
+        60000
+       ],
+       "sec80d_parents": [
+        60000,
+        0
+       ]
+      }
+     },
+     {
+      "id": "H08",
+      "style": "casual",
+      "expected": "complete",
+      "got": "clarify",
+      "asked": [
+       "gross_salary"
+      ],
+      "ok": false,
+      "kind": "over-asked"
+     },
+     {
+      "id": "H18",
+      "style": "third-person",
+      "expected": "complete",
+      "got": "clarify",
+      "asked": [
+       "age"
+      ],
+      "ok": false,
+      "kind": "over-asked"
+     }
+    ]
+   }
+  },
+  "llm": {
+   "dev50": {
+    "status": "not run: no GEMINI_API_KEY (or LLM_OFFLINE=1) and no cached response"
+   },
+   "heldout20": {
+    "status": "not run: no GEMINI_API_KEY (or LLM_OFFLINE=1) and no cached response"
+   },
+   "distinct_answers_per_input": "not run: no GEMINI_API_KEY (or LLM_OFFLINE=1) and no cached response"
+  },
+  "hybrid": {
+   "dev50": {
+    "status": "not run: no GEMINI_API_KEY (or LLM_OFFLINE=1) and no cached response"
+   },
+   "heldout20": {
+    "status": "not run: no GEMINI_API_KEY (or LLM_OFFLINE=1) and no cached response"
+   }
+  }
+ }
+}

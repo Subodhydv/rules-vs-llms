@@ -1,0 +1,15 @@
+{
+ "note": "Server-side SoQL counts over ALL NYC 311 requests created in 2023 (dataset erm2-nwe9), retrieved 2026-11-15 during development via the NYC Open Data API. fetch_data.py re-runs these queries; the dataset is live, so counts can drift slightly.",
+ "counts": {
+  "rows_2023": 3224723,
+  "closed_before_created": 4313,
+  "closed_equals_created": 62611,
+  "closed_date_null": 61874,
+  "latitude_null": 48579,
+  "incident_zip_null": 38520,
+  "incident_zip_not_5_digit_nyc": 89,
+  "borough_unspecified": 5994,
+  "closed_after_fetch_date": 0
+ },
+ "queries_that_failed_during_development": "Queries combining status='Closed' with other predicates, and GROUP BY over the full year, returned server errors or an implausible value (23,138,125 > total rows) through the fetch tool used; those counts are computed locally from the sample instead."
+}

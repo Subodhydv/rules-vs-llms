@@ -1,0 +1,43 @@
+{
+ "model": "gemini-2.5-flash",
+ "response": {
+  "candidates": [
+   {
+    "content": {
+     "parts": [
+      {
+       "text": "{\n  \"old\": {\n    \"line_items\": [\n      {\n        \"label\": \"Gross Salary\",\n        \"amount\": 374990,\n        \"clause\": \"Implicit from input\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Less: HRA Exemption\",\n        \"amount\": 0,\n        \"clause\": \"O-HRA\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Less: Standard Deduction\",\n        \"amount\": -50000,\n        \"clause\": \"O-SD\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Less: Loss from Self-Occupied House Property\",\n        \"amount\": 0,\n        \"clause\": \"O-HP\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Less: Chapter VI-A Deductions (80C, 80CCD1B, 80D)\",\n        \"amount\": 0,\n        \"clause\": \"O-80C, O-80CCD1B, O-80D-SELF, O-80D-PARENTS, O-VIA-CAP\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Total Income before rounding\",\n        \"amount\": 324990,\n        \"clause\": \"O-TI\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Rounding adjustment for Total Income\",\n        \"amount\": 0,\n        \"clause\": \"G-ROUND-INCOME\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Tax on Total Income\",\n        \"amount\": 3749.5,\n        \"clause\": \"O-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Less: Rebate u/s 87A\",\n        \"amount\": -3749.5,\n        \"clause\": \"O-87A\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Add: Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"O-SURCHARGE\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Less: Marginal Relief on Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"O-MR\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Add: Health and Education Cess @ 4%\",\n        \"amount\": 0,\n        \"clause\": \"O-CESS\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Tax before rounding\",\n        \"amount\": 0,\n        \"clause\": \"G-ORDER\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rounding adjustment for Tax Payable\",\n        \"amount\": 0,\n        \"clause\": \"G-ROUND-TAX\",\n        \"stage\": \"tax\"\n      }\n    ],\n    \"total_income\": 324990,\n    \"tax_payable\": 0\n  },\n  \"new\": {\n    \"line_items\": [\n      {\n        \"label\": \"Gross Salary\",\n        \"amount\": 374990,\n        \"clause\": \"Implicit from input\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Less: Standard Deduction\",\n        \"amount\": -75000,\n        \"clause\": \"N-SD\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Total Income before rounding\",\n        \"amount\": 299990,\n        \"clause\": \"N-TI\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Rounding adjustment for Total Income\",\n        \"amount\": 0,\n        \"clause\": \"G-ROUND-INCOME\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Tax on Total Income\",\n        \"amount\": 0,\n        \"clause\": \"N-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Less: Rebate u/s 87A\",\n        \"amount\": 0,\n        \"clause\": \"N-87A\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Less: Marginal Relief on 87A Rebate\",\n        \"amount\": 0,\n        \"clause\": \"N-87A-MR\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Add: Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"N-SURCHARGE\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Less: Marginal Relief on Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"N-MR\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Add: Health and Education Cess @ 4%\",\n        \"amount\": 0,\n        \"clause\": \"N-CESS\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Tax before rounding\",\n        \"amount\": 0,\n        \"clause\": \"G-ORDER\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rounding adjustment for Tax Payable\",\n        \"amount\": 0,\n        \"clause\": \"G-ROUND-TAX\",\n        \"stage\": \"tax\"\n      }\n    ],\n    \"total_income\": 299990,\n    \"tax_payable\": 0\n  },\n  \"recommended\": \"new\",\n  \"explanation\": \"Both regimes result in a tax payable of \u20b90. The new tax regime is recommended as it is the default and requires no deduction proofs. (G-REGIME)\"\n}"
+      }
+     ],
+     "role": "model"
+    },
+    "finishReason": "STOP",
+    "index": 0
+   }
+  ],
+  "usageMetadata": {
+   "promptTokenCount": 2994,
+   "candidatesTokenCount": 1417,
+   "totalTokenCount": 7993,
+   "cachedContentTokenCount": 1985,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2994
+    }
+   ],
+   "cacheTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1985
+    }
+   ],
+   "thoughtsTokenCount": 3582,
+   "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-2.5-flash",
+  "responseId": "MxT5apDTPN7B694P0pf-6Ag"
+ },
+ "latency_ms": 20483.59329206869,
+ "timestamp": "2026-11-15T07:39:11"
+}

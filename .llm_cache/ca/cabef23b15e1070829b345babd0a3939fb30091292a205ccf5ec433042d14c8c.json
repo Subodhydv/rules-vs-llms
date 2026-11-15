@@ -1,0 +1,43 @@
+{
+ "model": "gemini-2.5-flash",
+ "response": {
+  "candidates": [
+   {
+    "content": {
+     "parts": [
+      {
+       "text": "{\n  \"old\": {\n    \"line_items\": [\n      {\n        \"label\": \"Gross Salary\",\n        \"amount\": 1500000,\n        \"clause\": \"initial value\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"HRA Exemption\",\n        \"amount\": -300000,\n        \"clause\": \"O-HRA\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Standard Deduction\",\n        \"amount\": -50000,\n        \"clause\": \"O-SD\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Loss from Self-Occupied House Property\",\n        \"amount\": -200000,\n        \"clause\": \"O-HP\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80C\",\n        \"amount\": -150000,\n        \"clause\": \"O-80C\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80CCD(1B)\",\n        \"amount\": -50000,\n        \"clause\": \"O-80CCD1B\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80D (Self/Family)\",\n        \"amount\": -25000,\n        \"clause\": \"O-80D-SELF\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Deduction u/s 80D (Parents)\",\n        \"amount\": -50000,\n        \"clause\": \"O-80D-PARENTS\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Rounding Adjustment (Total Income)\",\n        \"amount\": 0,\n        \"clause\": \"G-ROUND-INCOME\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Tax on Total Income\",\n        \"amount\": 47500,\n        \"clause\": \"O-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rebate u/s 87A\",\n        \"amount\": 0,\n        \"clause\": \"O-87A\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"O-SURCHARGE\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Marginal Relief (Surcharge)\",\n        \"amount\": 0,\n        \"clause\": \"O-MR\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Health and Education Cess\",\n        \"amount\": 1900,\n        \"clause\": \"O-CESS\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rounding Adjustment (Tax Payable)\",\n        \"amount\": 0,\n        \"clause\": \"G-ROUND-TAX\",\n        \"stage\": \"tax\"\n      }\n    ],\n    \"total_income\": 675000,\n    \"tax_payable\": 49400\n  },\n  \"new\": {\n    \"line_items\": [\n      {\n        \"label\": \"Gross Salary\",\n        \"amount\": 1500000,\n        \"clause\": \"initial value\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Standard Deduction\",\n        \"amount\": -75000,\n        \"clause\": \"N-SD\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Rounding Adjustment (Total Income)\",\n        \"amount\": 0,\n        \"clause\": \"G-ROUND-INCOME\",\n        \"stage\": \"income\"\n      },\n      {\n        \"label\": \"Tax on Total Income\",\n        \"amount\": 125000,\n        \"clause\": \"N-SLAB\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rebate u/s 87A\",\n        \"amount\": 0,\n        \"clause\": \"N-87A\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Marginal Relief (Rebate u/s 87A)\",\n        \"amount\": 0,\n        \"clause\": \"N-87A-MR\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Surcharge\",\n        \"amount\": 0,\n        \"clause\": \"N-SURCHARGE\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Marginal Relief (Surcharge)\",\n        \"amount\": 0,\n        \"clause\": \"N-MR\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Health and Education Cess\",\n        \"amount\": 5000,\n        \"clause\": \"N-CESS\",\n        \"stage\": \"tax\"\n      },\n      {\n        \"label\": \"Rounding Adjustment (Tax Payable)\",\n        \"amount\": 0,\n        \"clause\": \"G-ROUND-TAX\",\n        \"stage\": \"tax\"\n      }\n    ],\n    \"total_income\": 1425000,\n    \"tax_payable\": 130000\n  },\n  \"recommended\": \"old\",\n  \"explanation\": \"The tax payable under the old regime is \u20b949,400, which is lower than the tax payable under the new regime (\u20b9130,000). Therefore, the old regime is recommended.\"\n}"
+      }
+     ],
+     "role": "model"
+    },
+    "finishReason": "STOP",
+    "index": 0
+   }
+  ],
+  "usageMetadata": {
+   "promptTokenCount": 3032,
+   "candidatesTokenCount": 1388,
+   "totalTokenCount": 9121,
+   "cachedContentTokenCount": 1986,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3032
+    }
+   ],
+   "cacheTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1986
+    }
+   ],
+   "thoughtsTokenCount": 4701,
+   "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-2.5-flash",
+  "responseId": "lRT5aqTDGYre694P0dzGmAU"
+ },
+ "latency_ms": 24574.373750016093,
+ "timestamp": "2026-11-15T07:40:53"
+}

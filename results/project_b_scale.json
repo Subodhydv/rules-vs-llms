@@ -1,0 +1,20 @@
+{
+ "rows_per_day": 50000000,
+ "customers": 120,
+ "rows_per_customer_per_day": 416666.6666666667,
+ "avg_rows_per_sec": 578.7037037037037,
+ "peak_rows_per_sec": 2893.5185185185182,
+ "measured_single_core_rows_per_sec": 26357.68593050787,
+ "cpu_core_hours_per_day": 0.5269388566775928,
+ "cores_needed_at_peak": 0.10977892847449848,
+ "llm_usd_per_row": 0.000107072875,
+ "llm_cost_basis": "estimated from prompt size",
+ "llm_share_of_rows": 0.002,
+ "llm_share_basis": "assumed upper bound (LLM stage not run)",
+ "llm_usd_per_day_hybrid": 10.7072875,
+ "llm_calls_per_day_hybrid": 2500.0,
+ "llm_usd_per_day_if_every_row": 5353.643749999999,
+ "llm_calls_per_day_if_every_row": 1250000.0,
+ "llm_usd_per_month_hybrid": 321.218625,
+ "llm_usd_per_month_if_every_row": 160609.31249999997
+}

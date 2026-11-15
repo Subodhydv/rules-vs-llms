@@ -1,0 +1,288 @@
+{
+ "edit_size": {
+  "rules": {
+   "config_lines_changed": 4,
+   "code_lines_changed": 0
+  },
+  "compiled": {
+   "json_lines_changed": 13,
+   "code_lines_changed": 0
+  },
+  "llm_query": {
+   "rule_text_lines_changed": 26,
+   "code_lines_changed": 0
+  }
+ },
+ "stale_with_fy_guard": {
+  "rules": {
+   "behaviour": "UnsupportedYear raised until fy2025_26.yaml exists (loud)"
+  },
+  "compiled": {
+   "behaviour": "UnsupportedYear raised until compiled/fy2025_26.json exists (loud)"
+  }
+ },
+ "stale_without_fy_guard": {
+  "rules": {
+   "n": 230,
+   "correct": 41,
+   "wrong_silent": 189,
+   "loud_errors": 0,
+   "examples": [
+    {
+     "id": "2025-26-003",
+     "desc": "new-regime TI 799,990 (threshold 800,000)",
+     "expected_new": 0,
+     "got_new": 31200
+    },
+    {
+     "id": "2025-26-004",
+     "desc": "new-regime TI 800,000 (threshold 800,000)",
+     "expected_new": 0,
+     "got_new": 31200
+    },
+    {
+     "id": "2025-26-005",
+     "desc": "new-regime TI 800,010 (threshold 800,000)",
+     "expected_new": 0,
+     "got_new": 31200
+    }
+   ]
+  },
+  "compiled": {
+   "n": 230,
+   "correct": 41,
+   "wrong_silent": 189,
+   "loud_errors": 0,
+   "examples": [
+    {
+     "id": "2025-26-003",
+     "desc": "new-regime TI 799,990 (threshold 800,000)",
+     "expected_new": 0,
+     "got_new": 31200
+    },
+    {
+     "id": "2025-26-004",
+     "desc": "new-regime TI 800,000 (threshold 800,000)",
+     "expected_new": 0,
+     "got_new": 31200
+    },
+    {
+     "id": "2025-26-005",
+     "desc": "new-regime TI 800,010 (threshold 800,000)",
+     "expected_new": 0,
+     "got_new": 31200
+    }
+   ]
+  }
+ },
+ "updated": {
+  "rules": {
+   "n": 230,
+   "correct": 230,
+   "wrong_silent": 0,
+   "loud_errors": 0,
+   "examples": []
+  },
+  "compiled": {
+   "n": 230,
+   "correct": 230,
+   "wrong_silent": 0,
+   "loud_errors": 0,
+   "examples": []
+  }
+ },
+ "partial_update_mutations": {
+  "rules": {
+   "slabs updated, 87A rebate left at 7L / 25k": {
+    "n": 230,
+    "correct": 179,
+    "wrong_silent": 51,
+    "loud_errors": 0,
+    "examples": [
+     {
+      "id": "2025-26-003",
+      "desc": "new-regime TI 799,990 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 20800
+     },
+     {
+      "id": "2025-26-004",
+      "desc": "new-regime TI 800,000 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 20800
+     },
+     {
+      "id": "2025-26-005",
+      "desc": "new-regime TI 800,010 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 20800
+     }
+    ]
+   },
+   "87A max raised to 60k but limit left at 7L": {
+    "n": 230,
+    "correct": 179,
+    "wrong_silent": 51,
+    "loud_errors": 0,
+    "examples": [
+     {
+      "id": "2025-26-003",
+      "desc": "new-regime TI 799,990 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 20800
+     },
+     {
+      "id": "2025-26-004",
+      "desc": "new-regime TI 800,000 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 20800
+     },
+     {
+      "id": "2025-26-005",
+      "desc": "new-regime TI 800,010 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 20800
+     }
+    ]
+   },
+   "87A limit raised to 12L but max left at 25k": {
+    "n": 230,
+    "correct": 199,
+    "wrong_silent": 31,
+    "loud_errors": 0,
+    "examples": [
+     {
+      "id": "2025-26-006",
+      "desc": "new-regime TI 1,199,990 (threshold 1,200,000)",
+      "expected_new": 0,
+      "got_new": 36400
+     },
+     {
+      "id": "2025-26-007",
+      "desc": "new-regime TI 1,200,000 (threshold 1,200,000)",
+      "expected_new": 0,
+      "got_new": 36400
+     },
+     {
+      "id": "2025-26-018",
+      "desc": "new-regime rebate/marginal relief TI 1,199,990",
+      "expected_new": 0,
+      "got_new": 36400
+     }
+    ]
+   },
+   "new 25% band (20L-24L) omitted": {
+    "n": 230,
+    "correct": 141,
+    "wrong_silent": 89,
+    "loud_errors": 0,
+    "examples": [
+     {
+      "id": "2025-26-015",
+      "desc": "new-regime TI 2,399,990 (threshold 2,400,000)",
+      "expected_new": 312000,
+      "got_new": 291200
+     },
+     {
+      "id": "2025-26-016",
+      "desc": "new-regime TI 2,400,000 (threshold 2,400,000)",
+      "expected_new": 312000,
+      "got_new": 291200
+     },
+     {
+      "id": "2025-26-017",
+      "desc": "new-regime TI 2,400,010 (threshold 2,400,000)",
+      "expected_new": 312000,
+      "got_new": 291200
+     }
+    ]
+   },
+   "file copied, only the year label changed": {
+    "n": 230,
+    "correct": 41,
+    "wrong_silent": 189,
+    "loud_errors": 0,
+    "examples": [
+     {
+      "id": "2025-26-003",
+      "desc": "new-regime TI 799,990 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 31200
+     },
+     {
+      "id": "2025-26-004",
+      "desc": "new-regime TI 800,000 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 31200
+     },
+     {
+      "id": "2025-26-005",
+      "desc": "new-regime TI 800,010 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 31200
+     }
+    ]
+   }
+  },
+  "compiled": {
+   "87A updated but marginal-relief step still uses 7L": {
+    "static_problems": [],
+    "n": 230,
+    "correct": 221,
+    "wrong_silent": 9,
+    "loud_errors": 0,
+    "examples": [
+     {
+      "id": "2025-26-008",
+      "desc": "new-regime TI 1,200,010 (threshold 1,200,000)",
+      "expected_new": 10,
+      "got_new": 62400
+     },
+     {
+      "id": "2025-26-020",
+      "desc": "new-regime rebate/marginal relief TI 1,200,010",
+      "expected_new": 10,
+      "got_new": 62400
+     },
+     {
+      "id": "2025-26-021",
+      "desc": "new-regime rebate/marginal relief TI 1,201,000",
+      "expected_new": 1040,
+      "got_new": 62560
+     }
+    ]
+   },
+   "slab table updated, rebate steps untouched": {
+    "static_problems": [],
+    "n": 230,
+    "correct": 179,
+    "wrong_silent": 51,
+    "loud_errors": 0,
+    "examples": [
+     {
+      "id": "2025-26-003",
+      "desc": "new-regime TI 799,990 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 20800
+     },
+     {
+      "id": "2025-26-004",
+      "desc": "new-regime TI 800,000 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 20800
+     },
+     {
+      "id": "2025-26-005",
+      "desc": "new-regime TI 800,010 (threshold 800,000)",
+      "expected_new": 0,
+      "got_new": 20800
+     }
+    ]
+   }
+  }
+ },
+ "revalidation_seconds": 0.61,
+ "llm": {
+  "status": "not run: no GEMINI_API_KEY (or LLM_OFFLINE=1) and no cached response"
+ }
+}

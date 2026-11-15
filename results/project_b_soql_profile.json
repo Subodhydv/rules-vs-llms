@@ -1,0 +1,130 @@
+{
+ "fetched_at": "2026-11-15T07:26:04",
+ "counts": {
+  "rows_2023": 3224723,
+  "closed_before_created": 4313,
+  "closed_equals_created": 62611,
+  "closed_date_null": 61874,
+  "latitude_null": 48579,
+  "incident_zip_null": 38520,
+  "incident_zip_not_5_digit_nyc": 89,
+  "borough_unspecified": 5994,
+  "closed_after_fetch_date": 0,
+  "resolution_null": 46062,
+  "descriptor_null": 39318
+ },
+ "status": [
+  {
+   "status": "Closed",
+   "n": "3176225"
+  },
+  {
+   "status": "In Progress",
+   "n": "38314"
+  },
+  {
+   "status": "Pending",
+   "n": "4803"
+  },
+  {
+   "status": "Open",
+   "n": "2068"
+  },
+  {
+   "status": "Assigned",
+   "n": "1448"
+  },
+  {
+   "status": "Unspecified",
+   "n": "1414"
+  },
+  {
+   "status": "Started",
+   "n": "451"
+  }
+ ],
+ "borough": [
+  {
+   "borough": "BROOKLYN",
+   "n": "1000859"
+  },
+  {
+   "borough": "QUEENS",
+   "n": "776644"
+  },
+  {
+   "borough": "MANHATTAN",
+   "n": "685350"
+  },
+  {
+   "borough": "BRONX",
+   "n": "627784"
+  },
+  {
+   "borough": "STATEN ISLAND",
+   "n": "128092"
+  },
+  {
+   "borough": "Unspecified",
+   "n": "5994"
+  }
+ ],
+ "top_agencies": [
+  {
+   "agency": "NYPD",
+   "n": "1392519"
+  },
+  {
+   "agency": "HPD",
+   "n": "686947"
+  },
+  {
+   "agency": "DSNY",
+   "n": "302029"
+  },
+  {
+   "agency": "DOT",
+   "n": "193947"
+  },
+  {
+   "agency": "DEP",
+   "n": "170274"
+  },
+  {
+   "agency": "DPR",
+   "n": "127794"
+  },
+  {
+   "agency": "DOB",
+   "n": "100958"
+  },
+  {
+   "agency": "DOHMH",
+   "n": "85189"
+  },
+  {
+   "agency": "EDC",
+   "n": "59127"
+  },
+  {
+   "agency": "DHS",
+   "n": "47627"
+  },
+  {
+   "agency": "TLC",
+   "n": "35814"
+  },
+  {
+   "agency": "DCWP",
+   "n": "20927"
+  },
+  {
+   "agency": "DOE",
+   "n": "1399"
+  },
+  {
+   "agency": "OTI",
+   "n": "172"
+  }
+ ]
+}

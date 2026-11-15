@@ -1,0 +1,43 @@
+# Hand-coded rules, FY 2024-25 (AY 2025-26). Every number cites a clause in sources/fy2024_25_rules.md.
+# Slab tables are [lower_bound, rate_on_income_above_that_bound] pairs.
+fy: "2024-25"
+rounding: {income_clause: G-ROUND-INCOME, tax_clause: G-ROUND-TAX}
+
+regimes:
+  old:
+    standard_deduction: {cap: 50000, clause: O-SD}
+    hra: {enabled: true, clause: O-HRA, rent_excess_pct: "0.10", metro_pct: "0.50", non_metro_pct: "0.40"}
+    house_property: {enabled: true, cap: 200000, clause: O-HP}
+    deductions:
+      - {field: sec80c, cap: 150000, clause: O-80C}
+      - {field: sec80ccd1b, cap: 50000, clause: O-80CCD1B}
+      - {field: sec80d_self_family, cap: 25000, senior_cap: 50000, senior_test: self_or_spouse, clause: O-80D-SELF}
+      - {field: sec80d_parents, cap: 25000, senior_cap: 50000, senior_test: parents, clause: O-80D-PARENTS}
+    deduction_cap_clause: O-VIA-CAP
+    slabs:
+      clause: O-SLAB
+      below_60:     [[0, "0"], [250000, "0.05"], [500000, "0.20"], [1000000, "0.30"]]
+      senior:       [[0, "0"], [300000, "0.05"], [500000, "0.20"], [1000000, "0.30"]]
+      super_senior: [[0, "0"], [500000, "0.20"], [1000000, "0.30"]]
+    rebate: {clause: O-87A, income_limit: 500000, max_rebate: 12500, marginal_relief: false}
+    surcharge:
+      clause: O-SURCHARGE
+      relief_clause: O-MR
+      bands: [[5000000, "0.10"], [10000000, "0.15"], [20000000, "0.25"], [50000000, "0.37"]]
+    cess: {rate: "0.04", clause: O-CESS}
+
+  new:
+    standard_deduction: {cap: 75000, clause: N-SD}
+    hra: {enabled: false}
+    house_property: {enabled: false}
+    deductions: []
+    disallowed_clause: N-DISALLOW
+    slabs:
+      clause: N-SLAB
+      all_ages: [[0, "0"], [300000, "0.05"], [700000, "0.10"], [1000000, "0.15"], [1200000, "0.20"], [1500000, "0.30"]]
+    rebate: {clause: N-87A, income_limit: 700000, max_rebate: 25000, marginal_relief: true, relief_clause: N-87A-MR}
+    surcharge:
+      clause: N-SURCHARGE
+      relief_clause: N-MR
+      bands: [[5000000, "0.10"], [10000000, "0.15"], [20000000, "0.25"]]
+    cess: {rate: "0.04", clause: N-CESS}

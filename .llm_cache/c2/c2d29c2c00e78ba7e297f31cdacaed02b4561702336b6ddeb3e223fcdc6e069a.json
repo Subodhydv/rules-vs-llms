@@ -1,0 +1,36 @@
+{
+ "model": "gemini-2.5-flash",
+ "response": {
+  "candidates": [
+   {
+    "content": {
+     "parts": [
+      {
+       "text": "{\n  \"fy\": \"2024-25\",\n  \"age\": 34,\n  \"resident\": null,\n  \"gross_salary\": 1850000,\n  \"basic_da\": null,\n  \"hra_received\": null,\n  \"rent_paid\": null,\n  \"metro\": false,\n  \"sec80c\": 150000,\n  \"sec80ccd1b\": null,\n  \"sec80d_self_family\": 22000,\n  \"sec80d_parents\": null,\n  \"spouse_senior\": null,\n  \"parents_senior\": null,\n  \"home_loan_interest\": null,\n  \"mentioned_without_amount\": [],\n  \"issues\": []\n}"
+      }
+     ],
+     "role": "model"
+    },
+    "finishReason": "STOP",
+    "index": 0
+   }
+  ],
+  "usageMetadata": {
+   "promptTokenCount": 743,
+   "candidatesTokenCount": 187,
+   "totalTokenCount": 1747,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 743
+    }
+   ],
+   "thoughtsTokenCount": 817,
+   "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-2.5-flash",
+  "responseId": "eED5arvUENjVqfkP_Lej8Ak"
+ },
+ "latency_ms": 5116.273625055328,
+ "timestamp": "2026-11-15T10:47:48"
+}
